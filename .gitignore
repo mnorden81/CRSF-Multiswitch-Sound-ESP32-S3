@@ -1,0 +1,13 @@
+# KiCad
+*-backups/
+fp-info-cache
+*.kicad_prl
+*.lck
+\#auto_saved_files\#
+_autosave-*
+*.bak
+# Fertigungsdaten werden bei Bedarf neu erzeugt
+gerber_to_order/
+# PlatformIO
+.pio/
+.vscode/

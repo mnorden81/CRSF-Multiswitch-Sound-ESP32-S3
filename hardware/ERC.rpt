@@ -1,0 +1,204 @@
+ERC-Bericht (2026-10-15T16:27:21+0200, UTF8-kodiert)
+
+***** Schaltplan /
+[pin_to_pin]: Pins vom Typ Power output und Power output sind verbunden
+    ; error
+    @(11200 mils, 9600 mils): Symbol #FLG48 Pin 1 [pwr, Power output, Line]
+    @(2400 mils, 3100 mils): Symbol U1 Pin 1 [3V3, Power output, Line]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(900 mils, 2200 mils): Symbol #PWR05 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(1400 mils, 2100 mils): Symbol CN2 [Conn_VLOAD_In]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(1900 mils, 2900 mils): Symbol #PWR01 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(3050 mils, 2100 mils): Symbol #PWR06 [GND]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(2100 mils, 3100 mils): Symbol #PWR02 [+3V3]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(1900 mils, 3400 mils): Symbol #PWR04 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(2100 mils, 3300 mils): Symbol #PWR03 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(4100 mils, 2350 mils): Symbol #PWR07 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(3000 mils, 4200 mils): Symbol U1 [ESP32-S3-DevKitC-1]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(4800 mils, 2200 mils): Symbol #PWR08 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(5300 mils, 2100 mils): Symbol CN3 [Conn_TPA_Pwr]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 3300 mils): Symbol LED1 [LED]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(500 mils, 6400 mils): Symbol #PWR23 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 3600 mils): Symbol LED2 [LED]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(700 mils, 6500 mils): Symbol #PWR24 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 3300 mils): Symbol #PWR15 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(1400 mils, 6500 mils): Symbol CN1 [Conn_UART_Up]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 3900 mils): Symbol LED3 [LED]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(6400 mils, 1900 mils): Symbol #PWR11 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 3600 mils): Symbol #PWR16 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(6400 mils, 2200 mils): Symbol #PWR13 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 4200 mils): Symbol LED4 [LED]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 3900 mils): Symbol #PWR17 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 4500 mils): Symbol LED5 [LED]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 4200 mils): Symbol #PWR18 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(3000 mils, 6400 mils): Symbol #PWR25 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 4500 mils): Symbol #PWR19 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 4800 mils): Symbol LED6 [LED]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(3200 mils, 6500 mils): Symbol #PWR26 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 4800 mils): Symbol #PWR20 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 5100 mils): Symbol LED7 [LED]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(3900 mils, 6500 mils): Symbol J5 [Conn_UART_Down]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 5100 mils): Symbol #PWR21 [GND]
+[lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(5400 mils, 5400 mils): Symbol LED8 [LED]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5650 mils, 5400 mils): Symbol #PWR22 [GND]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(200 mils, 8200 mils): Symbol #PWR29 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(6500 mils, 5100 mils): Symbol #PWR14 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(200 mils, 8300 mils): Symbol #PWR30 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5600 mils, 6400 mils): Symbol #PWR27 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(1400 mils, 8400 mils): Symbol J2 [Mod_PCM5102A]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(3100 mils, 8100 mils): Symbol #PWR32 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(200 mils, 8700 mils): Symbol #PWR31 [GND]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5800 mils, 6500 mils): Symbol #PWR28 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(3100 mils, 8200 mils): Symbol #PWR33 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(6500 mils, 6500 mils): Symbol J6 [Conn_UART_C]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(4300 mils, 8400 mils): Symbol J3 [Mod_MAX98357A]
+[lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(4900 mils, 8500 mils): Symbol #PWR35 [+5V]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(5300 mils, 8300 mils): Symbol #PWR34 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(6500 mils, 8400 mils): Symbol J4 [Jumper_Gain]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(10300 mils, 4300 mils): Symbol J1 [Conn_Out_2x8]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(8200 mils, 8500 mils): Symbol #PWR37 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(8100 mils, 8650 mils): Symbol #PWR36 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(9400 mils, 8400 mils): Symbol J7 [Conn_Setup]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(10750 mils, 8500 mils): Symbol #PWR38 [+3V3]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(10750 mils, 8700 mils): Symbol #PWR39 [GND]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(10750 mils, 9000 mils): Symbol #PWR40 [GND]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(12000 mils, 8600 mils): Symbol SD1 [microSD_Slot]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(11700 mils, 9600 mils): Symbol #PWR49 [+3V3]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(13600 mils, 7850 mils): Symbol #PWR41 [+3V3]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(14000 mils, 7850 mils): Symbol #PWR42 [+3V3]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(13600 mils, 8850 mils): Symbol #PWR44 [+3V3]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(14400 mils, 7850 mils): Symbol #PWR43 [+3V3]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(13600 mils, 9350 mils): Symbol #PWR45 [GND]
+[lib_symbol_mismatch]: Symbol "+3V3" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(14200 mils, 8850 mils): Symbol #PWR46 [+3V3]
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(14200 mils, 9350 mils): Symbol #PWR47 [GND]
+
+ ** ERC-Meldungen: 66  Fehler 1  Warnungen 65
