@@ -1,5 +1,5 @@
-# CRSF-Multiswitch-Sound-ESP32-S3 (v0.1, Entwurf)
-CRSF-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
+# RC-Multiswitch-Sound-ESP32-S3 (v0.1, Entwurf)
+RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
 
 ## Teile
 - Last 12-24V (CN2, JST PH 2 horizontal), TVS P6KE33A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (150R, THT) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Tabelle siehe Schaltplan).

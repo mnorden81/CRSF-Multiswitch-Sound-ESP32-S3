@@ -451,7 +451,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "CRSF-Multiswitch-Sound-ESP32-S3.kicad_pro",
+    "filename": "RC-Multiswitch-Sound-ESP32-S3.kicad_pro",
     "version": 3
   },
   "net_settings": {
