@@ -6,9 +6,16 @@
 	(paper "A3")
 	(title_block
 		(title "RC Multiswitch + Sound ESP32-S3 (ULN2803A, I2S, microSD)")
-		(date "2026-10-15")
-		(rev "v0.1")
+		(date "2026-10-17")
+		(rev "v0.8")
 		(comment 1 "Entwurf - vor Layout/Bestellung pruefen")
+		(comment 2 "v0.2: TPA3118 (HW-327, mono) statt TPA3116D2, Mono-Mix R18/R19, J10/J11")
+		(comment 3 "v0.3: MAX98357A (J3, J4, R17, AMP_SD, GAIN_SEL) entfernt")
+		(comment 4 "v0.4: Setup-Taster J7 und SD-Jumper J8 entfernt, microSD-Modul fest an 3V3 des ESP32-Boards; IO8/IO9 unbeschaltet (no-connect)")
+		(comment 5 "v0.5: PCM5102A-Ausgangspads G/R/G/L als J2-Pin 7-10 (Leiterbahn zum TPA3118), J10 entfernt")
+		(comment 6 "v0.6: Mono-Mix-Widerstaende R18/R19 entfernt, PCM5102A-Pad L direkt an J11 (Quelle ist mono), R-Pad unbenutzt")
+		(comment 7 "v0.7: TPA3118-Modul wird eingeloetet (J11 mit 6 Pads, Footprint Mod_TPA3118_HW327_THT), CN3 entfaellt, Lautsprecherausgang als JST PH CN4")
+		(comment 8 "v0.8: Betrieb max. 3S LiPo (9-12,6 V): TVS D1 P6KE33A -> P6KE15A, Beschriftungen angepasst")
 	)
 	(lib_symbols
 		(symbol "Device:C"
@@ -1293,6 +1300,127 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "local:Conn_Audio_LR"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 6.58 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Audio PCM5102A (L/R)"
+				(at 0 -6.58 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_Audio_LR_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "Conn_Audio_LR_1_1"
+				(pin passive line
+					(at -10.16 2.54 0)
+					(length 5.08)
+					(name "LOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 0 0)
+					(length 5.08)
+					(name "ROUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -2.54 0)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "local:Conn_Out_2x8"
 			(pin_names
 				(offset 1.016)
@@ -1648,7 +1776,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "local:Conn_Setup"
+		(symbol "local:Conn_TPA_In"
 			(pin_names
 				(offset 1.016)
 			)
@@ -1663,7 +1791,7 @@
 					)
 				)
 			)
-			(property "Value" "Setup-Taster"
+			(property "Value" "TPA3118 IN (mono)"
 				(at 0 -6.58 0)
 				(effects
 					(font
@@ -1698,7 +1826,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_Setup_0_1"
+			(symbol "Conn_TPA_In_0_1"
 				(rectangle
 					(start -5.08 2.54)
 					(end 5.08 -5.08)
@@ -1711,11 +1839,11 @@
 					)
 				)
 			)
-			(symbol "Conn_Setup_1_1"
+			(symbol "Conn_TPA_In_1_1"
 				(pin passive line
 					(at -10.16 0 0)
 					(length 5.08)
-					(name "SETUP"
+					(name "IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1766,7 +1894,7 @@
 					)
 				)
 			)
-			(property "Value" "TPA3116D2 Versorgung (VLOAD)"
+			(property "Value" "TPA3118 Versorgung (VLOAD)"
 				(at 0 -6.58 0)
 				(effects
 					(font
@@ -2286,7 +2414,7 @@
 					)
 				)
 			)
-			(property "Value" "Last 12-24V (JST PH)"
+			(property "Value" "Last 3S (JST PH)"
 				(at 0 -6.58 0)
 				(effects
 					(font
@@ -2927,7 +3055,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "local:Jumper_Gain"
+		(symbol "local:Mod_TPA3118"
 			(pin_names
 				(offset 1.016)
 			)
@@ -2935,256 +3063,14 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 0 6.58 0)
+				(at 0 4.04 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "GAIN-Wahl"
-				(at 0 -6.58 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Jumper_Gain_0_1"
-				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "Jumper_Gain_1_1"
-				(pin passive line
-					(at -10.16 2.54 0)
-					(length 5.08)
-					(name "GND_12dB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -10.16 0 0)
-					(length 5.08)
-					(name "GAIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -10.16 -2.54 0)
-					(length 5.08)
-					(name "+5V_6dB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "local:Jumper_SDVcc"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 6.58 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SD-VCC-Wahl"
-				(at 0 -6.58 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Jumper_SDVcc_0_1"
-				(rectangle
-					(start -5.08 5.08)
-					(end 5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "Jumper_SDVcc_1_1"
-				(pin passive line
-					(at -10.16 2.54 0)
-					(length 5.08)
-					(name "3V3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -10.16 0 0)
-					(length 5.08)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -10.16 -2.54 0)
-					(length 5.08)
-					(name "5V"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "local:Mod_MAX98357A"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 11.66 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "MAX98357A-Modul"
+			(property "Value" "TPA3118 HW-327"
 				(at 0 -11.66 0)
 				(effects
 					(font
@@ -3219,9 +3105,9 @@
 					(hide yes)
 				)
 			)
-			(symbol "Mod_MAX98357A_0_1"
+			(symbol "Mod_TPA3118_0_1"
 				(rectangle
-					(start -5.08 10.16)
+					(start -5.08 2.54)
 					(end 5.08 -10.16)
 					(stroke
 						(width 0.254)
@@ -3232,11 +3118,11 @@
 					)
 				)
 			)
-			(symbol "Mod_MAX98357A_1_1"
+			(symbol "Mod_TPA3118_1_1"
 				(pin passive line
-					(at -10.16 7.62 0)
+					(at -10.16 0 0)
 					(length 5.08)
-					(name "VIN"
+					(name "IN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3252,7 +3138,7 @@
 					)
 				)
 				(pin passive line
-					(at -10.16 5.08 0)
+					(at -10.16 -2.54 0)
 					(length 5.08)
 					(name "GND"
 						(effects
@@ -3270,9 +3156,9 @@
 					)
 				)
 				(pin passive line
-					(at -10.16 2.54 0)
+					(at -10.16 -5.08 0)
 					(length 5.08)
-					(name "SD"
+					(name "PWR+"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3288,9 +3174,9 @@
 					)
 				)
 				(pin passive line
-					(at -10.16 0 0)
+					(at -10.16 -7.62 0)
 					(length 5.08)
-					(name "GAIN"
+					(name "PWR-"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3306,9 +3192,9 @@
 					)
 				)
 				(pin passive line
-					(at -10.16 -2.54 0)
+					(at 10.16 0 180)
 					(length 5.08)
-					(name "DIN"
+					(name "OUT+"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3324,9 +3210,9 @@
 					)
 				)
 				(pin passive line
-					(at -10.16 -5.08 0)
+					(at 10.16 -2.54 180)
 					(length 5.08)
-					(name "BCLK"
+					(name "OUT-"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3341,17 +3227,102 @@
 						)
 					)
 				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "local:Conn_Speaker"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 4.04 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Lautsprecher"
+				(at 0 -6.58 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_Speaker_0_1"
+				(rectangle
+					(start -5.08 2.54)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "Conn_Speaker_1_1"
 				(pin passive line
-					(at -10.16 -7.62 0)
+					(at -10.16 0 0)
 					(length 5.08)
-					(name "LRC"
+					(name "SPK+"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "7"
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -10.16 -2.54 0)
+					(length 5.08)
+					(name "SPK-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3527,6 +3498,78 @@
 						)
 					)
 					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 5.08 180)
+					(length 5.08)
+					(name "R"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 2.54 180)
+					(length 5.08)
+					(name "L"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 0 180)
+					(length 5.08)
+					(name "AGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 10.16 -2.54 180)
+					(length 5.08)
+					(name "AGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4385,17 +4428,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "J4: GND = 12dB, offen = 9dB,"
-		(exclude_from_sim no)
-		(at 150 194 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "00a7e1e7-12e1-4f4e-8682-e0d992b3831e")
-	)
 	(text "D1: TVS Anode GND, Kathode VLOAD"
 		(exclude_from_sim no)
 		(at 30 66 0)
@@ -4407,7 +4439,7 @@
 		)
 		(uuid "089dd7cf-168b-473f-b0c7-984cbf752786")
 	)
-	(text "Last max. 24V / 500mA je Kanal. ESP32 aus +5V von CN1. TPA3116D2-Modul direkt aus VLOAD (CN3). Audio: nur EIN Modul bestuecken (PCM5102A + TPA3116D2 ODER MAX98357A)."
+	(text "Versorgung 3S LiPo (9-12,6 V), max. 500mA je Kanal. ESP32 aus +5V von CN1. TPA3118-Modul direkt aus VLOAD (J11), Lautsprecher an CN4. Audio: PCM5102A + TPA3118."
 		(exclude_from_sim no)
 		(at 15 21 0)
 		(effects
@@ -4418,18 +4450,7 @@
 		)
 		(uuid "0a1f77f1-1931-45ff-8078-da84ebc7d06b")
 	)
-	(text "B) MAX98357A (7-pol.)"
-		(exclude_from_sim no)
-		(at 90 194 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0d364f0c-58ec-41f3-8308-f72577cdc598")
-	)
-	(text "AUDIO (nur eine Variante bestuecken)"
+	(text "AUDIO: PCM5102A + TPA3118"
 		(exclude_from_sim no)
 		(at 15 188 0)
 		(effects
@@ -4462,6 +4483,17 @@
 		)
 		(uuid "2f51ef30-5026-4091-8695-31c989fd1913")
 	)
+	(text "PCM5102A: Loetbruecken H1L-H4L am Modul lt. Datenblatt pruefen (typ. FLT=L, DEMP=L, XSMT=H, FMT=L); SCK an GND (fest)"
+		(exclude_from_sim no)
+		(at 15 256 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "35793d5c-07ec-4e74-8e67-83fe1556e597")
+	)
 	(text "J1: ungerade Pins = OUT1..8 (ueber R9-R16), gerade Pins = VLOAD"
 		(exclude_from_sim no)
 		(at 205 72 0)
@@ -4473,7 +4505,7 @@
 		)
 		(uuid "45625c27-1221-425c-80f3-732d91cc21b7")
 	)
-	(text "Line-Out per Kabel zum TPA3116D2"
+	(text "Line-Out: Pad L (J2 Pin 10) direkt als Mono-Signal -> J11; R-Pad nicht benutzt (Quelle ist mono)"
 		(exclude_from_sim no)
 		(at 15 199 0)
 		(effects
@@ -4484,7 +4516,7 @@
 		)
 		(uuid "530e41c7-c5fa-4a14-937a-5d6df854b57a")
 	)
-	(text "RC Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (ULN2803A), 3 UART, I2S (PCM5102A oder MAX98357A), TPA3116D2, microSD  -  Entwurf v0.1"
+	(text "RC Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (ULN2803A), 3 UART, I2S (PCM5102A), TPA3118, microSD  -  Entwurf v0.8"
 		(exclude_from_sim no)
 		(at 15 14 0)
 		(effects
@@ -4495,51 +4527,7 @@
 		)
 		(uuid "6677227b-6eb0-4548-a783-646860de9337")
 	)
-	(text "+5V = 6dB"
-		(exclude_from_sim no)
-		(at 150 199 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "67278838-8fc4-4c0b-bfd2-acf17eb6bb6a")
-	)
-	(text "J8: Jumper 3V3 oder 5V je nach Modul"
-		(exclude_from_sim no)
-		(at 335 194 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "6ee1ec4e-1cc4-41b9-b1c4-83dac6f2bec5")
-	)
-	(text "beim Booten (IO8)"
-		(exclude_from_sim no)
-		(at 190 199 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "7540e9f1-1e05-4e3c-9667-88f12b914bbd")
-	)
-	(text "CN3 -> Versorgung TPA3116D2-Modul (+ / -)"
-		(exclude_from_sim no)
-		(at 125 66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "78976a51-6c98-47d9-9eba-4f2e48e164e6")
-	)
-	(text "microSD TF-Card-Modul (6-pol., SPI auf IO10-13)"
+	(text "microSD TF-Card-Modul (6-pol., SPI auf IO10-13), VCC = 3V3 vom ESP32-Board (reines 3,3V-Modul!)"
 		(exclude_from_sim no)
 		(at 280 188 0)
 		(effects
@@ -4550,7 +4538,7 @@
 		)
 		(uuid "9185023f-d4f3-4353-b351-f14a9af3bdf2")
 	)
-	(text "A) PCM5102A (6-pol.), SCK fest auf GND"
+	(text "PCM5102A (6-pol.), SCK fest auf GND"
 		(exclude_from_sim no)
 		(at 15 194 0)
 		(effects
@@ -4572,7 +4560,18 @@
 		)
 		(uuid "9f7cf416-a61d-46a1-bb2d-4b9d86a36358")
 	)
-	(text "Lastversorgung 12-24V (VLOAD)"
+	(text "Modul-MUTE offen lassen; Versorgung nur aus VLOAD (Modul 8-24 V: 3S-Akku nicht unter ca. 9 V entladen)"
+		(exclude_from_sim no)
+		(at 15 260 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a1409140-4449-4c0e-b4ef-834cdafbe649")
+	)
+	(text "Lastversorgung 3S LiPo 9-12,6 V (VLOAD)"
 		(exclude_from_sim no)
 		(at 15 40 0)
 		(effects
@@ -4594,17 +4593,6 @@
 		)
 		(uuid "a38c59d7-e0d2-474b-88e7-25461c08c6df")
 	)
-	(text "Lautsprecher direkt am Modul"
-		(exclude_from_sim no)
-		(at 90 199 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a51fa53e-1ce7-4e27-9157-b82c19969af6")
-	)
 	(text "Kontroll-LEDs (Sn -> R -> LED -> GND)"
 		(exclude_from_sim no)
 		(at 112 78 0)
@@ -4615,28 +4603,6 @@
 			(justify left bottom)
 		)
 		(uuid "b03f8c6b-2e85-466f-b1c7-3648c9be2466")
-	)
-	(text "(Module mit Spannungsregler/Pegelwandler: 5V, reine 3V3-Module: 3V3)"
-		(exclude_from_sim no)
-		(at 335 199 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b5e42ca5-e551-4915-bf2a-dcc805d29488")
-	)
-	(text "R17: Pull-down, stumm"
-		(exclude_from_sim no)
-		(at 190 194 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "cfa1bd42-a5ed-4819-9331-fc8511fa5658")
 	)
 	(text "UART A = zum Empfaenger / vorigen Modul (Pin3 RX, Pin4 TX). UART B/C = weiter (Pin3 TX, Pin4 RX). Gesperrt am DevKit: IO0/3/45/46, IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44 (UART0)."
 		(exclude_from_sim no)
@@ -4660,16 +4626,16 @@
 		)
 		(uuid "e2262c9f-1b66-45dd-aa65-cc4b4c0d20f0")
 	)
-	(text "J7: Setup-Taster (IO9)"
+	(text "TPA3118 (HW-327, MONO): Modul wird auf die Platine geloetet (J11: IN, GND, PWR+, PWR-, OUT+, OUT-), Versorgung aus VLOAD, Lautsprecher an CN4 (JST PH 2). MUTE-Pads offen"
 		(exclude_from_sim no)
-		(at 235 194 0)
+		(at 15 236 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "ecc9c6e1-9f51-4e83-b4f4-a7d6e6fd60ed")
+		(uuid "f1a07ea6-9e26-4432-bdb8-bc5e330c6e31")
 	)
 	(text "8-Kanal-Lastschalter (low-side), Eingaenge direkt vom ESP32"
 		(exclude_from_sim no)
@@ -4718,15 +4684,17 @@
 		(color 0 0 0 0)
 		(uuid "c0256c46-387a-4508-bc2d-9e57516f3f23")
 	)
-	(wire
-		(pts
-			(xy 91.44 137.16) (xy 93.98 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "027558e1-9eca-4d76-b570-8ebe3c889894")
+	(no_connect
+		(at 45.72 208.28)
+		(uuid "9d104132-b7a8-4296-bf03-f8952e452122")
+	)
+	(no_connect
+		(at 91.44 139.7)
+		(uuid "a145b6fc-5185-4772-bc27-dee57dfae2ba")
+	)
+	(no_connect
+		(at 91.44 137.16)
+		(uuid "c74e4af3-2d1e-494c-8d0d-1dc0a1bbaeda")
 	)
 	(wire
 		(pts
@@ -4807,16 +4775,6 @@
 			(type default)
 		)
 		(uuid "0bbb2dd7-f8d3-4d6b-995b-f82bfe281026")
-	)
-	(wire
-		(pts
-			(xy 154.94 215.9) (xy 124.46 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0c76af1e-d050-4d97-88e1-ab2e992e5f5e")
 	)
 	(wire
 		(pts
@@ -5010,16 +4968,6 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 210.82) (xy 355.6 210.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a84a99f-c50a-4348-997d-f5c722ae7a0a")
-	)
-	(wire
-		(pts
 			(xy 294.64 218.44) (xy 292.1 218.44)
 		)
 		(stroke
@@ -5047,16 +4995,6 @@
 			(type default)
 		)
 		(uuid "2bf54afd-4e59-4650-bf8c-14863d1c9a4d")
-	)
-	(wire
-		(pts
-			(xy 99.06 210.82) (xy 96.52 210.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2cbd47b2-645f-4c67-9b29-9ddc6de83397")
 	)
 	(wire
 		(pts
@@ -5130,16 +5068,6 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 213.36) (xy 226.06 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "37a14ecd-c84a-4231-9172-4df7d03f1978")
-	)
-	(wire
-		(pts
 			(xy 120.65 137.16) (xy 118.11 137.16)
 		)
 		(stroke
@@ -5160,6 +5088,16 @@
 	)
 	(wire
 		(pts
+			(xy 45.72 213.36) (xy 45.72 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40e81034-7e3d-4649-9d27-5b1a14ef1b48")
+	)
+	(wire
+		(pts
 			(xy 25.4 165.1) (xy 17.78 165.1)
 		)
 		(stroke
@@ -5170,16 +5108,6 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 213.36) (xy 152.4 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "450bd900-ff4e-4836-9fff-b921bdc4e6a1")
-	)
-	(wire
-		(pts
 			(xy 222.25 106.68) (xy 224.79 106.68)
 		)
 		(stroke
@@ -5187,16 +5115,6 @@
 			(type default)
 		)
 		(uuid "4973a67f-d7cd-4606-b145-9ef21af0a398")
-	)
-	(wire
-		(pts
-			(xy 124.46 53.34) (xy 119.38 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4b3e8eb3-b50d-4d77-8044-cbcbb846d597")
 	)
 	(wire
 		(pts
@@ -5287,16 +5205,6 @@
 			(type default)
 		)
 		(uuid "529a4d86-b036-477f-8274-26e39a468349")
-	)
-	(wire
-		(pts
-			(xy 99.06 213.36) (xy 96.52 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "540b08fe-f5c5-4a8c-bc02-0d7d8a219fbc")
 	)
 	(wire
 		(pts
@@ -5430,16 +5338,6 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 209.55) (xy 205.74 207.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f26b15c-0e59-46dc-94c9-9270cdc2a073")
-	)
-	(wire
-		(pts
 			(xy 25.4 55.88) (xy 22.86 55.88)
 		)
 		(stroke
@@ -5560,16 +5458,6 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 215.9) (xy 345.44 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8651d199-cfd5-48c7-af00-6a0f6199b6ce")
-	)
-	(wire
-		(pts
 			(xy 250.19 104.14) (xy 247.65 104.14)
 		)
 		(stroke
@@ -5610,6 +5498,16 @@
 	)
 	(wire
 		(pts
+			(xy 101.6 246.38) (xy 91.44 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "913b6851-03a8-4f31-9845-db63c3f20617")
+	)
+	(wire
+		(pts
 			(xy 88.9 162.56) (xy 76.2 162.56)
 		)
 		(stroke
@@ -5620,16 +5518,6 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 208.28) (xy 78.74 208.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95af4f7b-de07-4df6-9787-71806968df5d")
-	)
-	(wire
-		(pts
 			(xy 222.25 137.16) (xy 224.79 137.16)
 		)
 		(stroke
@@ -5637,16 +5525,6 @@
 			(type default)
 		)
 		(uuid "964fd3c6-b9db-43df-81a6-f19f4b486ddc")
-	)
-	(wire
-		(pts
-			(xy 99.06 215.9) (xy 96.52 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96876ee1-e126-4f0b-bb8e-f05167516845")
 	)
 	(wire
 		(pts
@@ -5670,16 +5548,6 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 218.44) (xy 96.52 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "98c8d4a1-c031-4234-bd28-a230aac9053b")
-	)
-	(wire
-		(pts
 			(xy 60.96 73.66) (xy 48.26 73.66)
 		)
 		(stroke
@@ -5697,16 +5565,6 @@
 			(type default)
 		)
 		(uuid "9ad306a6-f763-4ee9-be57-d70126342aee")
-	)
-	(wire
-		(pts
-			(xy 154.94 210.82) (xy 134.62 210.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9dc5c666-f488-452f-baf1-dd9116366b5a")
 	)
 	(wire
 		(pts
@@ -5820,16 +5678,6 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 205.74) (xy 78.74 205.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb1bbe79-a428-41ea-8f24-5ccaa10d7fc8")
-	)
-	(wire
-		(pts
 			(xy 128.27 114.3) (xy 133.35 114.3)
 		)
 		(stroke
@@ -5870,16 +5718,6 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 213.36) (xy 373.38 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c3dfb3b7-2546-42d9-98e1-a513cfb24b2c")
-	)
-	(wire
-		(pts
 			(xy 128.27 137.16) (xy 133.35 137.16)
 		)
 		(stroke
@@ -5917,16 +5755,6 @@
 			(type default)
 		)
 		(uuid "c6c7c19f-9bf4-4e0e-b5b6-b770a1db8c08")
-	)
-	(wire
-		(pts
-			(xy 205.74 217.17) (xy 205.74 219.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cbd07860-42e0-43bd-b637-be00c025b5b2")
 	)
 	(wire
 		(pts
@@ -6080,16 +5908,6 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 215.9) (xy 208.28 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e37a8f3a-4520-4c59-b6be-f3bf0e58a32a")
-	)
-	(wire
-		(pts
 			(xy 120.65 114.3) (xy 118.11 114.3)
 		)
 		(stroke
@@ -6200,16 +6018,6 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 55.88) (xy 121.92 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f04e05e9-6bc0-4d0d-954f-1609ed16d23b")
-	)
-	(wire
-		(pts
 			(xy 91.44 83.82) (xy 93.98 83.82)
 		)
 		(stroke
@@ -6220,16 +6028,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 139.7) (xy 93.98 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f0d98210-fe38-4173-9c9f-15b11e30266e")
-	)
-	(wire
-		(pts
 			(xy 154.94 167.64) (xy 152.4 167.64)
 		)
 		(stroke
@@ -6237,6 +6035,16 @@
 			(type default)
 		)
 		(uuid "f0d98dd6-d69f-4b2c-b271-ee493329f68a")
+	)
+	(wire
+		(pts
+			(xy 101.6 243.84) (xy 99.06 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f15aafff-53c6-478c-8c8d-f9934ed800a2")
 	)
 	(wire
 		(pts
@@ -6267,16 +6075,6 @@
 			(type default)
 		)
 		(uuid "f9c8a7b4-d209-4300-b38f-385c67c37bf9")
-	)
-	(wire
-		(pts
-			(xy 99.06 220.98) (xy 96.52 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f9dfc4e4-9357-464c-82da-d0df3554f313")
 	)
 	(wire
 		(pts
@@ -6317,16 +6115,6 @@
 			(type default)
 		)
 		(uuid "feda1702-4680-42e5-91ac-335ef15e9c71")
-	)
-	(label "AMP_SD"
-		(at 205.74 207.01 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "00e225e1-04f7-427d-a132-b09edbac5ea5")
 	)
 	(label "OUT7L"
 		(at 247.65 116.84 180)
@@ -6428,16 +6216,6 @@
 		)
 		(uuid "1632cd58-a5b5-4a7c-bca6-48d60752cc76")
 	)
-	(label "SD_VCC"
-		(at 373.38 213.36 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "181c91b6-1404-4e32-a9a3-3023d5620971")
-	)
 	(label "S4"
 		(at 152.4 111.76 180)
 		(effects
@@ -6528,6 +6306,16 @@
 		)
 		(uuid "326257c1-b217-44f7-a0bd-fa0d21f2d44e")
 	)
+	(label "AUDIO_MONO"
+		(at 45.72 210.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "344b261f-3e7b-4fbd-954c-6cd4c5649ccb")
+	)
 	(label "I2S_LRCK"
 		(at 93.98 129.54 0)
 		(effects
@@ -6598,16 +6386,6 @@
 		)
 		(uuid "45f5634b-e1ce-4f61-92e0-a0f8472252d4")
 	)
-	(label "SETUP"
-		(at 93.98 139.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4a0c28ab-f498-46fa-bb83-be32d116bc13")
-	)
 	(label "S7"
 		(at 93.98 91.44 0)
 		(effects
@@ -6647,16 +6425,6 @@
 			(justify right bottom)
 		)
 		(uuid "565c0b44-bdd1-4c12-9998-5f1848877226")
-	)
-	(label "AMP_SD"
-		(at 96.52 210.82 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5e6b9d32-6089-41ea-ac74-6d45cfd047b4")
 	)
 	(label "S3"
 		(at 93.98 81.28 0)
@@ -6728,16 +6496,6 @@
 		)
 		(uuid "7319a423-6ab6-49bb-99d8-5a6de527c1c9")
 	)
-	(label "I2S_LRCK"
-		(at 96.52 220.98 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "75e826dd-8b3e-4b50-8f3e-80591ca70577")
-	)
 	(label "OUT7"
 		(at 212.09 129.54 180)
 		(effects
@@ -6778,16 +6536,6 @@
 		)
 		(uuid "7bc7c0ab-6af2-44e5-8974-6b0324ac8fbb")
 	)
-	(label "I2S_DOUT"
-		(at 96.52 215.9 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "7d56793f-bbf5-4257-b7c4-7bc45e628b1b")
-	)
 	(label "OUT1L"
 		(at 247.65 101.6 180)
 		(effects
@@ -6807,16 +6555,6 @@
 			(justify right bottom)
 		)
 		(uuid "7f5aaa38-e7fc-4621-b02e-77497f86c79b")
-	)
-	(label "AMP_SD"
-		(at 93.98 137.16 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "80e9a290-faff-4f0b-9233-a57ef366f741")
 	)
 	(label "I2S_DOUT"
 		(at 93.98 132.08 0)
@@ -6958,16 +6696,6 @@
 		)
 		(uuid "a1906504-38ba-4270-a4b9-5551bcb1fea6")
 	)
-	(label "GAIN_SEL"
-		(at 96.52 213.36 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a206165f-2418-4cf8-801e-96076473200e")
-	)
 	(label "OUT5L"
 		(at 224.79 114.3 0)
 		(effects
@@ -7068,16 +6796,6 @@
 		)
 		(uuid "ba98f77f-937c-4bdd-ac73-65ec7b7bc91d")
 	)
-	(label "VLOAD"
-		(at 119.38 53.34 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "be47cb9e-2eee-4d96-9316-f16f19d99cb8")
-	)
 	(label "S1"
 		(at 152.4 119.38 180)
 		(effects
@@ -7088,16 +6806,6 @@
 		)
 		(uuid "c1cf0863-ac20-468e-bbd3-c0f9fb08b004")
 	)
-	(label "I2S_BCLK"
-		(at 96.52 218.44 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c3b48a05-12fa-498d-849f-edc2054b4984")
-	)
 	(label "SD_MOSI"
 		(at 292.1 213.36 180)
 		(effects
@@ -7107,16 +6815,6 @@
 			(justify right bottom)
 		)
 		(uuid "c4153acc-1224-4a9f-b2fe-445e6a9c31d2")
-	)
-	(label "GAIN_SEL"
-		(at 152.4 213.36 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c539d5cc-9e22-4099-8fca-d599dd5a790e")
 	)
 	(label "S6"
 		(at 118.11 129.54 180)
@@ -7168,16 +6866,6 @@
 		)
 		(uuid "d61abb4a-a516-43fa-b621-1128a5a1e319")
 	)
-	(label "SD_VCC"
-		(at 292.1 208.28 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "d79ca238-20ee-42fe-a531-a80a485337fd")
-	)
 	(label "OUT6L"
 		(at 224.79 121.92 0)
 		(effects
@@ -7197,16 +6885,6 @@
 			(justify right bottom)
 		)
 		(uuid "deddc90f-1b80-490a-bf08-f990fb40472a")
-	)
-	(label "SETUP"
-		(at 226.06 213.36 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e08f12c8-8760-4aed-97bd-959009cc6d46")
 	)
 	(label "UB_TX"
 		(at 93.98 101.6 0)
@@ -7307,6 +6985,16 @@
 			(justify right bottom)
 		)
 		(uuid "f82f9656-286d-4fe1-b75d-06e23c2867bd")
+	)
+	(label "AUDIO_MONO"
+		(at 99.06 243.84 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "fd1f78c6-7fdd-452c-a5a7-a350540893f1")
 	)
 	(label "OUT3"
 		(at 177.8 109.22 0)
@@ -7868,7 +7556,7 @@
 				)
 			)
 		)
-		(property "Value" "P6KE33A"
+		(property "Value" "P6KE15A"
 			(at 71.12 56.84 0)
 			(effects
 				(font
@@ -8484,70 +8172,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 345.44 215.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "23fdbe13-0fd8-4ae6-803c-0085eaca9f3a")
-		(property "Reference" "#PWR40"
-			(at 345.44 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 345.44 212.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 345.44 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 345.44 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 345.44 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d8a4ea84-992c-4dd9-808b-47775a643424")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR40")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "local:Conn_UART_Down")
 		(at 99.06 165.1 0)
 		(unit 1)
@@ -9085,33 +8709,32 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 208.28 215.9 0)
+		(lib_id "local:Mod_TPA3118")
+		(at 111.76 243.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "44f3c0c5-dc62-471b-a5c0-3e318ba96b40")
-		(property "Reference" "#PWR37"
-			(at 208.28 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 208.28 218.9 0)
+		(uuid "3df671cd-1f68-4355-96ca-d326a571169e")
+		(property "Reference" "J11"
+			(at 111.76 240.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 208.28 215.9 0)
+		(property "Value" "TPA3118 HW-327"
+			(at 111.76 255 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ESP32-S3-DevKitC-1_THT:Mod_TPA3118_HW327_THT"
+			(at 111.76 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9120,7 +8743,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 208.28 215.9 0)
+			(at 111.76 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9129,84 +8752,36 @@
 			)
 		)
 		(property "Description" ""
-			(at 208.28 215.9 0)
+			(at 111.76 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
-			(uuid "5810ec22-ed5f-4c06-b5c9-5d58b4d00f79")
+			(uuid "658831cf-4f2d-4f55-b09f-7bfbb70be785")
+		)
+		(pin "2"
+			(uuid "3c216f64-2e52-4217-9e14-a1ec7d1eaac2")
+		)
+		(pin "3"
+			(uuid "78a71133-b2dd-481c-b29f-87dfe49dcc22")
+		)
+		(pin "4"
+			(uuid "a867bece-683d-4e17-a405-9ada6cc144ff")
+		)
+		(pin "5"
+			(uuid "5390e8e7-a72e-4642-bb94-568a47cae415")
+		)
+		(pin "6"
+			(uuid "67137bcf-70d2-4108-a58f-892115eadece")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR37")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 78.74 208.28 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "461aa27d-de77-4690-96aa-6a944626a422")
-		(property "Reference" "#PWR33"
-			(at 78.74 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 78.74 211.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.74 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 78.74 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "80f8d9a0-fa6e-444e-ae31-d629f223ab22")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR33")
+					(reference "J11")
 					(unit 1)
 				)
 			)
@@ -9277,32 +8852,33 @@
 		)
 	)
 	(symbol
-		(lib_id "local:Conn_Setup")
-		(at 238.76 213.36 0)
+		(lib_id "power:+3V3")
+		(at 292.1 208.28 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "4d76d2a7-7824-47a9-813b-f1a966e455eb")
-		(property "Reference" "J7"
-			(at 238.76 209.86 0)
+		(uuid "48dce540-fbd9-4209-b7eb-bb56cbdf2458")
+		(property "Reference" "#PWR103"
+			(at 292.1 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 292.1 205.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "Setup"
-			(at 238.76 219.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 238.76 213.36 0)
+		(property "Footprint" ""
+			(at 292.1 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9311,7 +8887,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 213.36 0)
+			(at 292.1 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9320,7 +8896,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 238.76 213.36 0)
+			(at 292.1 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9328,15 +8904,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e15a3b8b-6b8d-494a-8941-140ed3509abb")
-		)
-		(pin "2"
-			(uuid "d74ede07-0edf-49e4-b6fc-7a50550b2f49")
+			(uuid "3b5f9857-64fb-4053-a92c-f262c855fed7")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "J7")
+					(reference "#PWR103")
 					(unit 1)
 				)
 			)
@@ -10003,87 +9576,6 @@
 		)
 	)
 	(symbol
-		(lib_id "local:Mod_MAX98357A")
-		(at 109.22 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "765c2c14-689f-446d-9128-8e2f827aacdd")
-		(property "Reference" "J3"
-			(at 109.22 202.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MAX98357A"
-			(at 109.22 224.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
-			(at 109.22 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 109.22 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 109.22 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d5e7e7b3-c9bc-46cb-9567-ecf79b8eec0e")
-		)
-		(pin "2"
-			(uuid "e9ed8b61-b147-41c2-80c8-df9ecf2208f7")
-		)
-		(pin "3"
-			(uuid "d77d7137-37b1-4df6-9179-d9e669ff5572")
-		)
-		(pin "4"
-			(uuid "87936083-43df-415d-abcd-8bd2a17906a5")
-		)
-		(pin "5"
-			(uuid "76e7e506-4637-4acf-896c-88d693a3d1c8")
-		)
-		(pin "6"
-			(uuid "329f7da0-ca09-4ceb-a346-8aef2048460d")
-		)
-		(pin "7"
-			(uuid "58c6a6e1-ab12-41af-96f3-c760864f1d69")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "local:Conn_UART_Up")
 		(at 35.56 165.1 0)
 		(unit 1)
@@ -10172,7 +9664,7 @@
 				)
 			)
 		)
-		(property "Value" "12V"
+		(property "Value" "3S"
 			(at 35.56 59.38 0)
 			(effects
 				(font
@@ -10282,75 +9774,6 @@
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "local:Jumper_SDVcc")
-		(at 386.08 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8449af22-0691-4ca0-ae4c-07fe786ee0ab")
-		(property "Reference" "J8"
-			(at 386.08 207.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SD-VCC"
-			(at 386.08 219.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 386.08 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 386.08 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 386.08 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f7320d16-7090-4ad8-9e08-ead8578d86a3")
-		)
-		(pin "2"
-			(uuid "42a5cd3f-c0e5-406a-ab7d-7299b5298e62")
-		)
-		(pin "3"
-			(uuid "3c2d860b-9994-4562-9aa2-53c7e065e68a")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -10657,16 +10080,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 124.46 215.9 0)
+		(lib_id "power:GND")
+		(at 45.72 215.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8cbe4b86-eeae-4bc1-aa84-37cb645bace7")
-		(property "Reference" "#PWR35"
-			(at 124.46 215.9 0)
+		(uuid "8a316a37-d09e-4e2f-ba63-526b4ee29b37")
+		(property "Reference" "#PWR101"
+			(at 45.72 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10674,8 +10097,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+5V"
-			(at 124.46 212.9 0)
+		(property "Value" "GND"
+			(at 45.72 218.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10683,7 +10106,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 124.46 215.9 0)
+			(at 45.72 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10692,7 +10115,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 124.46 215.9 0)
+			(at 45.72 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10701,52 +10124,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 124.46 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e205bda1-53df-423f-a6d3-7473d1c4679d")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "local:Conn_TPA_Pwr")
-		(at 134.62 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8db5bf24-ead4-4c4a-aa72-e46e4b2ca900")
-		(property "Reference" "CN3"
-			(at 134.62 49.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TPA3116D2"
-			(at 134.62 59.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-			(at 134.62 53.34 0)
+			(at 45.72 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10754,33 +10132,13 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 134.62 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 134.62 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "e149aa82-a613-4682-a68e-42f9eadf4bb0")
-		)
 		(pin "1"
-			(uuid "b2ed5261-6084-4f34-8b73-c82faf1c252e")
+			(uuid "a6035744-9f4a-42b6-b32d-1720c0d5f9c2")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "CN3")
+					(reference "#PWR101")
 					(unit 1)
 				)
 			)
@@ -10986,75 +10344,6 @@
 		)
 	)
 	(symbol
-		(lib_id "local:Jumper_Gain")
-		(at 165.1 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "905dde9d-5b32-4423-8a99-ca2f113719bb")
-		(property "Reference" "J4"
-			(at 165.1 207.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GAIN"
-			(at 165.1 219.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 165.1 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 165.1 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 165.1 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "13412825-c6db-40f6-9785-d815ea3b99a3")
-		)
-		(pin "2"
-			(uuid "84b7f153-d22b-41de-b139-37256519ef21")
-		)
-		(pin "3"
-			(uuid "b779b8bf-f576-4fd8-a28d-1d7d9b07dbba")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 218.44 137.16 90)
 		(unit 1)
@@ -11115,138 +10404,6 @@
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 355.6 210.82 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "95c7a1d2-9f0a-43f1-bb36-164bef304975")
-		(property "Reference" "#PWR39"
-			(at 355.6 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 355.6 207.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 355.6 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 355.6 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 355.6 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "4b0bb074-4a57-4657-930a-49bfb44c57ef")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR39")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 205.74 213.36 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "973d224a-362f-40a8-9331-8540df8f9a1b")
-		(property "Reference" "R17"
-			(at 207.74 211.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100k"
-			(at 207.74 214.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 205.74 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 205.74 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 205.74 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1548a036-b3bd-4eea-bf2b-0a660aa8d0e2")
-		)
-		(pin "2"
-			(uuid "87ff6841-d9ca-464a-be22-9fab36acb517")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -11606,7 +10763,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
+		(property "Footprint" "ESP32-S3-DevKitC-1_THT:Mod_PCM5102A_GY_THT"
 			(at 35.56 213.36 0)
 			(effects
 				(font
@@ -11649,6 +10806,18 @@
 		)
 		(pin "6"
 			(uuid "6ce70a55-6d81-454c-a3ae-f5015f2f23fb")
+		)
+		(pin "7"
+			(uuid "9810ff96-7d09-4eeb-87ef-7946377fd696")
+		)
+		(pin "8"
+			(uuid "c633f724-8c00-41dd-b2d9-bed5aaa97330")
+		)
+		(pin "9"
+			(uuid "b4b6ce85-72a4-47f6-a83d-f777f717cbd1")
+		)
+		(pin "10"
+			(uuid "e896ae0d-4915-40e5-a494-4a1f21457799")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
@@ -11753,7 +10922,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
+		(property "Footprint" "ESP32-S3-DevKitC-1_THT:Mod_microSD_SPI_THT"
 			(at 304.8 213.36 0)
 			(effects
 				(font
@@ -11940,70 +11109,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 121.92 55.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c1fa6f61-a7f9-49dc-9599-9487052e08c1")
-		(property "Reference" "#PWR08"
-			(at 121.92 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 121.92 58.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 121.92 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 121.92 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 121.92 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ae7aaacc-4c8b-4d2b-88d6-ea5c680a82cc")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 22.86 55.88 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12137,15 +11242,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 205.74 219.71 0)
+		(at 91.44 246.38 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "ca9bfa08-1ec7-4f6e-9ac8-5148f2381f79")
-		(property "Reference" "#PWR36"
-			(at 205.74 219.71 0)
+		(uuid "cbae70b7-59e0-4033-b992-219447c15a4e")
+		(property "Reference" "#PWR102"
+			(at 91.44 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12154,7 +11259,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 205.74 222.71 0)
+			(at 91.44 249.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12162,7 +11267,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 205.74 219.71 0)
+			(at 91.44 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12171,7 +11276,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 205.74 219.71 0)
+			(at 91.44 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12180,20 +11285,21 @@
 			)
 		)
 		(property "Description" ""
-			(at 205.74 219.71 0)
+			(at 91.44 246.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
-			(uuid "c8a72910-0c29-4ce6-8a47-0ba31447dc53")
+			(uuid "3016f9be-1f4a-4018-b5c6-ac2e603f8d65")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR36")
+					(reference "#PWR102")
 					(unit 1)
 				)
 			)
@@ -12595,70 +11701,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 78.74 205.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ed408bb4-5fdf-48b2-adb0-f1b021703860")
-		(property "Reference" "#PWR32"
-			(at 78.74 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 78.74 202.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 78.74 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 78.74 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 78.74 205.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "0b53e21e-0814-4245-9420-ba5fd0e73c2d")
-		)
-		(instances
-			(project "RC-Multiswitch-Sound-ESP32-S3"
-				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR32")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 5.08 210.82 0)
 		(unit 1)
@@ -12786,34 +11828,99 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 101.6 248.92) (xy 99.06 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f9a6eb5-d21f-40bf-ae0a-cbeb863ca6b7")
+	)
+	(label "VLOAD"
+		(at 99.06 248.92 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "56659c51-6b22-4b09-a1e3-c8d3846a102b")
+	)
+	(wire
+		(pts
+			(xy 101.6 251.46) (xy 91.44 251.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "012b6a21-c1da-4988-86b3-38ae716b05e4")
+	)
+	(wire
+		(pts
+			(xy 91.44 251.46) (xy 91.44 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "267f004f-4af3-49c0-8561-ff48a7209c98")
+	)
+	(junction
+		(at 91.44 246.38)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "72f3de4f-7e33-42b5-93a1-c7268fb243cc")
+	)
+	(wire
+		(pts
+			(xy 121.92 243.84) (xy 139.84 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91fbe8db-7627-4196-8c04-4ef6b4390f86")
+	)
+	(wire
+		(pts
+			(xy 121.92 246.38) (xy 139.84 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d4b2e0e-2a39-40c4-9964-fb0556cd1357")
+	)
 	(symbol
-		(lib_id "power:GND")
-		(at 134.62 210.82 0)
+		(lib_id "local:Conn_Speaker")
+		(at 150.0 243.84 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "fba483bd-32a6-4686-b374-fec663819e1c")
-		(property "Reference" "#PWR34"
-			(at 134.62 210.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 134.62 213.82 0)
+		(uuid "104f5ebc-096e-4850-9a52-fccca7a31464")
+		(property "Reference" "CN4"
+			(at 150.0 240.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 134.62 210.82 0)
+		(property "Value" "Lautsprecher"
+			(at 150.0 249.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
+			(at 150.0 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12822,7 +11929,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 134.62 210.82 0)
+			(at 150.0 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12831,20 +11938,23 @@
 			)
 		)
 		(property "Description" ""
-			(at 134.62 210.82 0)
+			(at 150.0 243.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
+		(pin "2"
+			(uuid "4e8ea008-8ffa-47b9-902a-8cb8549365dc")
+		)
 		(pin "1"
-			(uuid "9deaa1be-ec03-4fd4-b0bc-25bacbfd4cd5")
+			(uuid "eb2459e9-1de3-4ae6-bb2b-2e1102d81d54")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
-					(reference "#PWR34")
+					(reference "CN4")
 					(unit 1)
 				)
 			)
