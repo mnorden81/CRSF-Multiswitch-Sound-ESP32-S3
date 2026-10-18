@@ -617,7 +617,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 3.02 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -1647,7 +1647,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 3.12 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -1851,7 +1851,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -3310,7 +3310,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.97 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3514,7 +3514,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 3.12 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3718,7 +3718,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4762,7 +4762,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -5435,7 +5435,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 5.2 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -6161,7 +6161,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6803,7 +6803,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7007,7 +7007,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -7421,7 +7421,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.82 3.52 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7625,7 +7625,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -7829,7 +7829,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.91 3.67 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -8243,7 +8243,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11517,7 +11517,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 3.81 2.37 0)
 			(layer "F.Fab")
 			(hide yes)

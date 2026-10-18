@@ -2,7 +2,7 @@
 RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
 
 ## Teile
-- Last 3S LiPo 9-12,6V (CN2, JST PH 2 horizontal), TVS P6KE15A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (150R, THT) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Tabelle siehe Schaltplan).
+- Last 3S LiPo 9-12,6V (CN2, JST PH 2 horizontal), TVS P6KE15A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (THT, ohne Wert: Anwender legt sie je Verbraucher aus) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Wert vom Anwender, Empfehlung siehe Schaltplan).
 - UART A (CN1, Eingang), UART B (J5), UART C (J6): JST PH 4-polig horizontal (S4B-PH-K). Keine Vorwiderstaende. ESP32 wird aus +5V von CN1 versorgt.
 - Audio:
   - PCM5102A-Modul auf J2 (VIN, GND, LCK, DIN, BCK, SCK), SCK fest auf GND. Das TPA3118-Modul (HW-327, mono, 8-24 V) wird direkt aus VLOAD gespeist (Pads PWR+/PWR- am Modul, kein Stecker CN3 mehr). Audio: Die Quelle ist mono, deshalb geht nur der Ausgang L (J2 Pin 10) per Leiterbahn direkt an J11 (IN) des Verstaerkers, die G-Pads (J2 Pin 7, 9) an GND, das R-Pad (J2 Pin 8) bleibt unbenutzt (kein Mono-Mix, keine R18/R19). Der MUTE-Header des Moduls bleibt offen. Loetbruecken H1L-H4L am PCM5102A-Modul lt. Datenblatt pruefen (ueblich: FLT=L, DEMP=L, XSMT=H, FMT=L).

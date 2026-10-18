@@ -4461,7 +4461,7 @@
 		)
 		(uuid "1fe21293-2d1f-4dcb-a919-f4a098e834e5")
 	)
-	(text "Ausgangswiderstaende (THT, je Verbraucher waehlen)"
+	(text "Ausgangswiderstaende (THT, Werte legt der Anwender je Verbraucher fest)"
 		(exclude_from_sim no)
 		(at 190 78 0)
 		(effects
@@ -7033,7 +7033,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 132.54 270)
 			(effects
 				(font
@@ -7227,7 +7227,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 86.82 270)
 			(effects
 				(font
@@ -7490,7 +7490,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 140.16 270)
 			(effects
 				(font
@@ -7750,7 +7750,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 109.68 270)
 			(effects
 				(font
@@ -8122,7 +8122,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 94.44 270)
 			(effects
 				(font
@@ -8324,7 +8324,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 102.06 270)
 			(effects
 				(font
@@ -8595,7 +8595,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 124.92 270)
 			(effects
 				(font
@@ -9124,7 +9124,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 117.3 270)
 			(effects
 				(font
@@ -9730,7 +9730,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 124.92 270)
 			(effects
 				(font
@@ -10161,7 +10161,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 117.3 270)
 			(effects
 				(font
@@ -10360,7 +10360,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 140.16 270)
 			(effects
 				(font
@@ -10426,7 +10426,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 109.68 270)
 			(effects
 				(font
@@ -10561,7 +10561,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 132.54 270)
 			(effects
 				(font
@@ -10992,7 +10992,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 218.44 94.44 270)
 			(effects
 				(font
@@ -11058,7 +11058,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 86.82 270)
 			(effects
 				(font
@@ -11651,7 +11651,7 @@
 				)
 			)
 		)
-		(property "Value" "150"
+		(property "Value" "R"
 			(at 124.46 102.06 270)
 			(effects
 				(font
