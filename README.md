@@ -11,14 +11,13 @@ Ausfuehrliche Projektbeschreibung: [docs/Projektbeschreibung.docx](docs/Projektb
 ## Merkmale
 - 8 Schaltkanaele ueber ULN2803A, Kontroll-LED je Kanal
 - UART A (Eingang), UART B und UART C als JST PH 4
-- Audio wahlweise: A) PCM5102A-DAC mit externem TPA3116D2-Verstaerker (aus VLOAD) oder B) MAX98357A mit Gain-Jumper
-- microSD-Kartenmodul (6-polig) ueber SPI, Versorgung per Jumper 5 V oder 3,3 V
-- Setup-Taster
+- Audio: PCM5102A-DAC mit externem TPA3118-Verstaerker (HW-327, mono, aus VLOAD; Quelle mono: Kanal L direkt an den Verstaerker, kein Mono-Mix)
+- microSD-Kartenmodul (6-polig) ueber SPI, Versorgung fest 3,3 V vom ESP32-Board (nur reine 3,3-V-Module verwenden)
 
-## Hardware (v0.1 (Entwurf, nur Schaltplan))
+## Hardware (v0.8, Entwurf, nur Schaltplan)
 Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 
-- Lastspannung 12-24 V (VLOAD) an CN2 (JST PH 2), TVS-Diode P6KE33A als Schutz.
+- Lastspannung 3S LiPo, 9-12,6 V (VLOAD) an CN2 (JST PH 2), TVS-Diode P6KE15A als Schutz.
 - Treiber ULN2803A, 8 Kanaele, max. 500 mA je Kanal (Verlustleistung des ULN2803A bei mehreren Kanaelen beachten).
 - R9-R16 (THT 1/4 W, Standard 150 R) zwischen ULN-Ausgang und Stiftleiste J1, je nach Verbraucher waehlen.
 - R1-R8 und LED1-LED8 (3 mm) als Kontroll-LED je Kanal, vom Steuersignal Sn gegen GND.
@@ -33,19 +32,17 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 | UART C (J6) | TX IO41, RX IO42 |
 | SD (SPI) | CS IO10, MOSI IO11, SCK IO12, MISO IO13 |
 | I2S | BCLK IO14, LRCK IO21, DOUT IO47 |
-| Amp-Mute (MAX98357A SD) | IO8 |
-| Setup-Taster | IO9 |
 
 ### Anschluesse
 - CN1, J5, J6: UART A/B/C als JST PH 4 horizontal (S4B-PH-K)
-- CN2 Last 12-24 V (JST PH 2), CN3 Versorgung TPA3116D2 aus VLOAD
-- J2 PCM5102A-Modul, J3 MAX98357A-Modul, J4 Gain-Jumper
-- J8 Jumper SD-Versorgung, J9 microSD-Modul, J7 Setup-Taster
+- CN2 Last 3S LiPo (9-12,6 V) (JST PH 2), CN4 Lautsprecherausgang (JST PH 2, SPK+ / SPK-)
+- J2 PCM5102A-Modul: Pin 1-6 = Stiftleiste (VIN, GND, LCK, DIN, BCK, SCK), Pin 7-10 = Ausgangspads G, R, G, L. Die Quelle ist mono: Pad L (Pin 10) und G (Pin 7, 9) gehen per Leiterbahn direkt an J11, Pad R (Pin 8) bleibt unbenutzt (No-Connect). Kein Mono-Mix, keine Mischwiderstaende.
+- J11 TPA3118-Modul (HW-327), wird auf die Platine geloetet: Pad 1 IN, 2 GND, 3 PWR+ (VLOAD), 4 PWR- (GND), 5 OUT+ und 6 OUT- (zu CN4); die MUTE-Pads bleiben offen
+- J9 microSD-Modul (6 Pins, VCC an 3V3 des ESP32-Boards, eigener Footprint mit Befestigungsloechern)
 
 ### Hinweise
-- Nur eine Audio-Variante bestuecken. Die I2S-Leitungen gehen parallel an beide Modulplaetze.
 - Gesperrte GPIOs: IO0/3/45/46 (Strapping), IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44 (UART0). IO38/48 je nach Board an der RGB-LED.
-- Footprint ESP32-S3-DevKitC-1_THT mit Reihenabstand 25,4 mm. Vor dem Layout am echten Board nachmessen.
+- Footprint ESP32-S3-DevKitC-1_THT mit Reihenabstand 25,4 mm. Vor dem Layout am echten Board nachmessen. Eigene Footprints fuer PCM5102A, microSD-Modul und TPA3118-Modul liegen in hardware/footprints.pretty; die Masse sind aus Fotos geschaetzt und vor dem Layout nachzumessen.
 - Nicht gleichzeitig USB und BEC anschliessen, ohne die Schutzdiode des Boards zu pruefen.
 
 ## Firmware (geplant)
@@ -60,11 +57,15 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 - `docs/`: Projektbeschreibung als DOCX.
 
 ## Stand
-- Hardware: Schaltplan vorhanden, PCB noch leer. ERC: 1 Fehler (3V3 von U1 und PWR_FLAG beide Power output) und 65 Warnungen, siehe hardware/ERC.rpt.
+- Hardware: Schaltplan v0.8, PCB in Arbeit. ERC-Stand v0.3 (hardware/ERC.rpt): 1 Fehler (IO8 unbeschaltet, seit v0.4 mit No-Connect-Flag, plus Rest-Leitungsstueck entfernt) und 55 Warnungen (Bibliotheksversionen "power"/"Device"/"local", harmlos). Nach v0.8 ERC neu ausfuehren.
 - Firmware: noch nicht begonnen. Basis kann die Sound-Mini-Firmware (ESP32-Sound-Mini-S3) sein.
 
 ## Offene Punkte
-- ERC-Fehler beheben (PWR_FLAG an 3V3 entfernen) und Symbolbibliothek "local" einbinden
+- R9-R16 (Platzhalter 150 R) fuer 3S-Betrieb (ca. 11-12 V) je Verbraucher auslegen; Helligkeit schwankt mit dem Ladezustand.
+- Schaltplan v0.8 im PCB per F8 (Aktualisieren aus Schaltplan) uebernehmen: J10, R18, R19, J3, J4, R17, J7, J8 entfallen (Footprints ohne Symbol loeschen lassen), J2, J9 und J11 bekommen die neuen Modul-Footprints (J11 jetzt TPA3118 mit 6 Pads), CN3 entfaellt, CN4 (Lautsprecher) ist neu. hardware/*.pdf ist noch der Stand v0.1.
+- ERC mit v0.8 neu ausfuehren; Symbolbibliothek "local" einbinden (reduziert die Warnungen).
+- TPA3118-Modul (HW-327): Modul-Mindestspannung 8 V beachten (3S-Akku nicht unter ca. 9 V entladen, Abschaltung ueber Fahrregler/Unterspannungswaechter), MUTE-Header offen, Leiterbahnbreite und Stromaufnahme gegen CN2/CN4 (JST PH, ca. 2 A je Kontakt) pruefen.
+- microSD-Modul muss ein reines 3,3-V-Modul sein (Standard-Module mit Spannungsregler bekommen sonst zu wenig Spannung); Pinreihenfolge am Modul gegen J9 (VCC, CS, MOSI, SCK, MISO, GND) pruefen.
+- Module nachmessen und Footprints anpassen: PCM5102A, microSD-Modul, TPA3118 (Padlage, Befestigungsloecher, Belegung IN/GND per Multimeter pruefen), ESP32-S3-DevKitC-1.
 - PCB-Layout erstellen
-- Footprint am echten Board nachmessen
 - Firmware schreiben (Multiswitch + Sound)

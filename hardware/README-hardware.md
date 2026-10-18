@@ -1,15 +1,13 @@
-# RC-Multiswitch-Sound-ESP32-S3 (v0.1, Entwurf)
+# RC-Multiswitch-Sound-ESP32-S3 (v0.8, Entwurf)
 RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
 
 ## Teile
-- Last 12-24V (CN2, JST PH 2 horizontal), TVS P6KE33A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (150R, THT) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Tabelle siehe Schaltplan).
+- Last 3S LiPo 9-12,6V (CN2, JST PH 2 horizontal), TVS P6KE15A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (150R, THT) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Tabelle siehe Schaltplan).
 - UART A (CN1, Eingang), UART B (J5), UART C (J6): JST PH 4-polig horizontal (S4B-PH-K). Keine Vorwiderstaende. ESP32 wird aus +5V von CN1 versorgt.
-- Audio, nur EINE Variante bestuecken:
-  - A) PCM5102A-Modul auf J2 (VIN, GND, LCK, DIN, BCK, SCK), SCK fest auf GND. Line-Out per Kabel auf das TPA3116D2-Modul, das ueber CN3 direkt aus VLOAD gespeist wird.
-  - B) MAX98357A-Modul auf J3 (VIN, GND, SD, GAIN, DIN, BCLK, LRC), GAIN per Jumper J4 (GND 12dB / offen 9dB / +5V 6dB), SD an IO8 mit R17 (100k) Pull-down.
-  - I2S-Leitungen BCLK/LRCK/DOUT gehen parallel an beide Module.
-- microSD-TF-Kartenmodul (6-polig, J9: VCC, CS, MOSI, SCK, MISO, GND, gleiche Reihenfolge wie auf deinem RC-Sound-Board) an IO10-13. Versorgung per Jumper J8: 5V fuer Module mit Spannungsregler/Pegelwandler (Standard-"Micro SD TF Card Module"), 3V3 fuer reine 3,3V-Module. Pull-ups und Entkopplung sind auf dem Modul.
-- Setup-Taster auf J7 (IO9, interner Pull-up in Firmware).
+- Audio:
+  - PCM5102A-Modul auf J2 (VIN, GND, LCK, DIN, BCK, SCK), SCK fest auf GND. Das TPA3118-Modul (HW-327, mono, 8-24 V) wird direkt aus VLOAD gespeist (Pads PWR+/PWR- am Modul, kein Stecker CN3 mehr). Audio: Die Quelle ist mono, deshalb geht nur der Ausgang L (J2 Pin 10) per Leiterbahn direkt an J11 (IN) des Verstaerkers, die G-Pads (J2 Pin 7, 9) an GND, das R-Pad (J2 Pin 8) bleibt unbenutzt (kein Mono-Mix, keine R18/R19). Der MUTE-Header des Moduls bleibt offen. Loetbruecken H1L-H4L am PCM5102A-Modul lt. Datenblatt pruefen (ueblich: FLT=L, DEMP=L, XSMT=H, FMT=L).
+  - I2S-Leitungen BCLK/LRCK/DOUT gehen an das PCM5102A-Modul (J2).
+- microSD-TF-Kartenmodul (6-polig, J9: VCC, CS, MOSI, SCK, MISO, GND, gleiche Reihenfolge wie auf deinem RC-Sound-Board) an IO10-13. Versorgung fest 3,3 V vom 3V3-Pin des ESP32-Boards (J8 entfaellt). Das Modul muss mit 3,3 V arbeiten: Standard-"Micro SD TF Card Module" mit Spannungsregler und Pegelwandler sind fuer 5 V gebaut und funktionieren mit 3,3 V nicht zuverlaessig (Regler-Dropout). Pull-ups und Entkopplung sind auf dem Modul.
 
 ## GPIO-Belegung (DevKitC-1 N16R8)
 | Funktion | GPIO |
@@ -20,15 +18,19 @@ RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-
 | UART C | TX 41, RX 42 |
 | SD (SPI) | CS 10, MOSI 11, SCK 12, MISO 13 |
 | I2S | BCLK 14, LRCK 21, DOUT 47 |
-| Amp-Mute (MAX98357A SD) | 8 |
-| Setup | 9 |
 Gesperrt: IO0/3/45/46 (Strapping), IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44 (UART0). IO38/48 koennen je nach Board-Revision an der RGB-LED haengen.
 
 ## Footprint
 - `footprints.pretty/ESP32-S3-DevKitC-1_THT`: 2x22, 2,54 mm, Reihenabstand **25,4 mm**, Pad 1-22 links von oben (USB unten), 23-44 rechts. Die Espressif-Bibliothek (PCM_Espressif) soll laut KiCad-Forum 22,86 mm haben und damit vermutlich falsch sein. Reihenabstand und Aussenmasse VOR dem Layout am echten Board nachmessen, die Pinbelegung gegen das Pinout des gekauften Boards pruefen.
 - Pad-Zuordnung (Pad 1..22 = J1 links, 23..44 = J3 rechts) ist im Footprint und im Symbol identisch.
+- `footprints.pretty/Mod_PCM5102A_GY_THT`: PCM5102A-Modul FLACH (Draufsicht): 6 Pins am linken kurzen Rand, Pad 1..6 = VIN (unten), GND, LCK, DIN, BCK, SCK (oben), wie J2. Pinraster exakt; Umriss ca. 31,5 x 16,5 mm inkl. Klinkenbuchse, aus dem Foto geschaetzt, am echten Modul nachmessen. Pad 7..10 = G, R, G, L an der oberen Langkante (Raster 2,54 mm), wie J2 Pin 7-10; die fuenf weiteren Loecher der Oberkante sind unbestueckt und nur auf F.Fab als Kreise markiert. Zum Uebernehmen in J2 im Schaltplan als Footprint `ESP32-S3-DevKitC-1_THT:Mod_PCM5102A_GY_THT` eintragen (Bibliotheksname siehe fp-lib-table).
+- `footprints.pretty/Mod_microSD_SPI_THT`: microSD-/TF-Modul (Platine ca. 17,7 x 17,6 mm, Slot ragt rechts ca. 2,5 mm ueber), Pad 1..6 = VCC, CS, MOSI, SCK, MISO, GND (wie J9, Pad 1 eckig oben), zwei Befestigungsloecher 2,2 mm. Masse aus dem Foto geschaetzt, Pinreihenfolge laut Beschriftung des echten Moduls pruefen.
+- `footprints.pretty/Mod_TPA3118_HW327_THT`: TPA3118-Modul HW-327 zum Einloeten (ca. 45,4 x 35 mm, 4 Befestigungsloecher 3 mm, Raster 39,7 x 29,1 mm). Pads: 1 IN (eckig), 2 GND, 3 PWR+ (eckig), 4 PWR-, 5 OUT+, 6 OUT-, 7/8 MUTE (nicht im Schaltplan, offen). Lage aus dem Foto geschaetzt (Raster der IN-Pads 2,54 mm als Massstab, OUT/PWR-Pads ca. 3,8 mm): am echten Modul nachmessen. Belegung IN/GND per Multimeter pruefen (GND-Pad hat Durchgang zu PWR-). Die alte Datei `Mod_TPA3118_HW327_Keepout.kicad_mod` ist damit ueberholt und kann geloescht werden.
+- CN4 (Lautsprecher): Standard-Footprint Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal.
 
 ## Hinweise
+- TPA3118-Modul: Betriebsspannung 3S (9-12,6 V) liegt im Bereich des Moduls (8-24 V), Elkos 25 V unkritisch; unter 8 V schaltet es nicht zuverlaessig. Leistung bei 12 V nur einige Watt an 4-8 Ohm. Der Verstaerker kann mehrere Ampere ziehen, die Leiterbahnen (Breite!) von VLOAD zu den Modul-Pads und CN4 (JST PH, ca. 2 A je Kontakt) pruefen. Mono: ein Lautsprecher (4-8 Ohm), BTL-Ausgang, keine Masse am Lautsprecher.
+- Aenderungen v0.2 bis v0.8: TPA3118 statt TPA3116D2, MAX98357A samt J3/J4/R17 entfernt, J7 (Setup) und J8 (SD-Jumper) entfernt, SD fest an 3V3, PCM5102A-Ausgangspads als J2 Pin 7-10, J10/R18/R19 entfallen (mono), J11 Eingang des TPA3118. Im PCB per F8 uebernehmen, hardware/*.pdf ist noch v0.1.
 - ESP wird ueber den 5V-Pin versorgt. Nicht gleichzeitig USB und BEC anschliessen, ohne zu pruefen, ob das Board eine Schutzdiode hat.
 - Kein ERC/DRC im Entstehungs-Sandkasten (nur KiCad-CLI 7) und keine Firmware getestet. Bitte ERC in KiCad ausfuehren.
 - fp-lib-table liegt neben der .kicad_pro, damit der Projekt-Footprint gefunden wird.
