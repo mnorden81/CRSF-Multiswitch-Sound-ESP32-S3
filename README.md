@@ -1,8 +1,10 @@
-# CRSF-Multiswitch-Sound-ESP32-S3
+# RC-Multiswitch-Sound-ESP32-S3
 
-CRSF-Multiswitch mit 8 Kanaelen plus Soundmodul auf einem ESP32-S3-DevKitC-1.
+RC-Multiswitch mit 8 Kanaelen plus Soundmodul auf einem ESP32-S3-DevKitC-1.
 
-Kombiniert den CRSF-Multiswitch mit einem Soundmodul auf einer Platine: 8 Schaltkanaele ueber ULN2803A und Soundausgabe ueber I2S, Sounds von microSD. Ziel ist ein Modul fuer Modelle, die Licht und Sound zusammen brauchen.
+Frueher `CRSF-Multiswitch-Sound-ESP32-S3`, umbenannt passend zu RC-Multiswitch-ESP32-C3 und -S3.
+
+Kombiniert den RC-Multiswitch mit einem Soundmodul auf einer Platine: 8 Schaltkanaele ueber ULN2803A und Soundausgabe ueber I2S, Sounds von microSD. Ziel ist ein Modul fuer Modelle, die Licht und Sound zusammen brauchen.
 
 Ausfuehrliche Projektbeschreibung: [docs/Projektbeschreibung.docx](docs/Projektbeschreibung.docx)
 

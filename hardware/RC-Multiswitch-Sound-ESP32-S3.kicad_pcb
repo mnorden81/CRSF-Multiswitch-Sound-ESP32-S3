@@ -186,7 +186,7 @@
 		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
 		(path "/17b7f09e-f410-4091-8434-57e8dc34dab7")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.44 0)
@@ -445,7 +445,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/9fcaf09c-672e-462d-967d-af68054b4eef")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -655,7 +655,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/ecd0346e-bb85-4176-99c7-78f81904b9b3")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -857,7 +857,7 @@
 		)
 		(path "/77b87806-ce0a-4beb-b3b6-246bb39599f8")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.06 -1.46)
@@ -1273,7 +1273,7 @@
 		)
 		(path "/b6dc26fe-6015-4b45-ab16-9cab794a72b9")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -1541,7 +1541,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/8edb9cdc-a221-40b2-bbc3-55f08d6e357c")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -1744,7 +1744,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/a2c2fbb0-71a6-453e-94d9-41d57e5f08b7")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -1946,7 +1946,7 @@
 		)
 		(path "/4d76d2a7-7824-47a9-813b-f1a966e455eb")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -2170,7 +2170,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/757ab8a9-6923-475d-9217-0ed58e6dd52b")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -2379,7 +2379,7 @@
 		)
 		(path "/8a28df56-7070-4bf0-964a-db885ff9ae17")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -2776,7 +2776,7 @@
 		)
 		(path "/29401779-0140-478c-9d5a-f7a739928a97")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 8.06 6.36)
@@ -3215,7 +3215,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/8f4c5bac-cbdf-4f28-9937-79309a965d12")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -3425,7 +3425,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/c037cd8a-01c3-419d-99e7-9246a925423f")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -3627,7 +3627,7 @@
 		)
 		(path "/905dde9d-5b32-4423-8a99-ca2f113719bb")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -3862,7 +3862,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/03f17ec0-e909-4c7e-a5ab-8d470a9b75ce")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -4065,7 +4065,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/32dd40d9-b605-4434-ae37-e4dc6a564b8b")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -4268,7 +4268,7 @@
 		(property ki_fp_filters "DIP*W7.62mm* SOIC*7.5x11.6mm*P1.27mm*")
 		(path "/1e99ea6a-40d1-459b-b6f2-baef43d57573")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 1.16 -1.33)
@@ -4691,7 +4691,7 @@
 		)
 		(path "/8449af22-0691-4ca0-ae4c-07fe786ee0ab")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -4926,7 +4926,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/973d224a-362f-40a8-9331-8540df8f9a1b")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -5128,7 +5128,7 @@
 		)
 		(path "/8db5bf24-ead4-4c4a-aa72-e46e4b2ca900")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.06 -1.46)
@@ -5545,7 +5545,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1c7b6b30-e7d3-4aee-a92a-bd6cb1b986fd")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -5748,7 +5748,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/c992436f-d85c-42e5-83ca-a1adc63b7c58")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -5957,7 +5957,7 @@
 		)
 		(path "/bb9c339d-fbd4-49d8-aca3-d6bef7209faa")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -6225,7 +6225,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/23e9198e-ddc6-419d-826b-c6b8b1daee35")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -6428,7 +6428,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/de1d96a8-96f0-4283-89cc-5a13bc08fdac")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -6637,7 +6637,7 @@
 		)
 		(path "/765c2c14-689f-446d-9128-8e2f827aacdd")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.38 -1.38)
@@ -6916,7 +6916,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/164fef0c-1141-4eb2-a0db-d108c1d58520")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -7126,7 +7126,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/0a292726-6481-4584-bf3b-db1c5694f459")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -7328,7 +7328,7 @@
 		)
 		(path "/66758828-e9cb-444d-afd5-5607a3904df9")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 8.06 6.36)
@@ -7767,7 +7767,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/3bc017b1-bf10-46e3-86f1-13f131f7b1d0")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -7970,7 +7970,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/910896d5-6ddf-4f20-8a61-841ced588de9")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -8173,7 +8173,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/b909c8f7-2560-419f-9f85-6727f88701a0")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -8383,7 +8383,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/9c3f6fc9-4c5d-4c7a-a814-fe05e7398208")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -8586,7 +8586,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/17b2aff3-144f-4c15-8bd9-70eae03b54cf")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -8789,7 +8789,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/7f851eec-1151-4519-8e3d-8ad379036ddf")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -8992,7 +8992,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/6cd49ced-e39e-4723-a4d3-a3bac0abe1bb")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -9202,7 +9202,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/bcfc8a8e-50cd-4b30-adaf-79647123a0e1")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)
@@ -9404,7 +9404,7 @@
 		)
 		(path "/773a1052-19f3-4436-926b-a9d491a487e5")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 8.06 6.36)
@@ -9843,7 +9843,7 @@
 		(property ki_fp_filters "CP_*")
 		(path "/d78a15b3-30ff-4483-8597-9ab07faf7b87")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -2.979646 -2.875)
@@ -11917,7 +11917,7 @@
 		)
 		(path "/3395278d-5907-4c45-b8aa-ddf77c1d5bf7")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_rect
 			(start -14.1 -35)
@@ -12475,7 +12475,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/5f877a7b-45c4-4914-92f5-41e73dbd98d3")
 		(sheetname "/")
-		(sheetfile "CRSF-Multiswitch-Sound-ESP32-S3.kicad_sch")
+		(sheetfile "RC-Multiswitch-Sound-ESP32-S3.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.54 -1.37)

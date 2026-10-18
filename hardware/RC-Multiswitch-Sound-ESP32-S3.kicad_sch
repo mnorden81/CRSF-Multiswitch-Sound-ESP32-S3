@@ -5,7 +5,7 @@
 	(uuid "e2fadea6-822e-490b-9be0-b4a472d338fa")
 	(paper "A3")
 	(title_block
-		(title "CRSF Multiswitch + Sound ESP32-S3 (ULN2803A, I2S, microSD)")
+		(title "RC Multiswitch + Sound ESP32-S3 (ULN2803A, I2S, microSD)")
 		(date "2026-10-15")
 		(rev "v0.1")
 		(comment 1 "Entwurf - vor Layout/Bestellung pruefen")
@@ -4484,7 +4484,7 @@
 		)
 		(uuid "530e41c7-c5fa-4a14-937a-5d6df854b57a")
 	)
-	(text "CRSF Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (ULN2803A), 3 UART, I2S (PCM5102A oder MAX98357A), TPA3116D2, microSD  -  Entwurf v0.1"
+	(text "RC Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (ULN2803A), 3 UART, I2S (PCM5102A oder MAX98357A), TPA3116D2, microSD  -  Entwurf v0.1"
 		(exclude_from_sim no)
 		(at 15 14 0)
 		(effects
@@ -7386,7 +7386,7 @@
 			(uuid "e3dfa6bc-1c5b-4eaa-ad82-92fe5f3ea567")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R7")
 					(unit 1)
@@ -7450,7 +7450,7 @@
 			(uuid "97293427-3cf1-40fe-aeab-02d094bd2c27")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR21")
 					(unit 1)
@@ -7514,7 +7514,7 @@
 			(uuid "9fc44204-0103-4880-ae71-ccdbcc604e81")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR07")
 					(unit 1)
@@ -7580,7 +7580,7 @@
 			(uuid "76e38788-dc31-4661-9db8-4651262fbbb8")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R9")
 					(unit 1)
@@ -7644,7 +7644,7 @@
 			(uuid "7bf445d7-3555-488d-ba2d-559c07d6e2ba")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR01")
 					(unit 1)
@@ -7708,7 +7708,7 @@
 			(uuid "4b96e9d4-88cd-4444-8076-0f5ac0f31ce4")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR06")
 					(unit 1)
@@ -7777,7 +7777,7 @@
 			(uuid "0686a708-38fd-450a-b823-fbb18e83bcc6")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED7")
 					(unit 1)
@@ -7843,7 +7843,7 @@
 			(uuid "f708df56-a476-492f-abaa-c0430d81a67b")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R8")
 					(unit 1)
@@ -7909,7 +7909,7 @@
 			(uuid "493e18e1-c232-44f2-8ba5-6a8b89e7d465")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "D1")
 					(unit 1)
@@ -7973,7 +7973,7 @@
 			(uuid "5708df68-406d-4d5c-a178-9f568a22955e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR20")
 					(unit 1)
@@ -8037,7 +8037,7 @@
 			(uuid "acb4a5d7-b538-48fc-9d78-0d59332bc773")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR25")
 					(unit 1)
@@ -8103,7 +8103,7 @@
 			(uuid "4eab8fc6-1d2e-4d91-b7e8-92975190c460")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R12")
 					(unit 1)
@@ -8167,7 +8167,7 @@
 			(uuid "87f5e2c4-d98b-433d-8c15-763b91cca4d8")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR38")
 					(unit 1)
@@ -8281,7 +8281,7 @@
 			(uuid "6b50dc28-3363-46a6-a303-58a92f29c709")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "U2")
 					(unit 1)
@@ -8345,7 +8345,7 @@
 			(uuid "adf8ffe0-3811-4035-8bf0-596e1aaaf7e3")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#FLG10")
 					(unit 1)
@@ -8409,7 +8409,7 @@
 			(uuid "b1b1966a-5242-415c-9f39-e4c7361851e6")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR16")
 					(unit 1)
@@ -8475,7 +8475,7 @@
 			(uuid "573105b6-3a03-4942-a654-75bb38601029")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R2")
 					(unit 1)
@@ -8539,7 +8539,7 @@
 			(uuid "d8a4ea84-992c-4dd9-808b-47775a643424")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR40")
 					(unit 1)
@@ -8611,7 +8611,7 @@
 			(uuid "6ea2e226-0b83-4d69-9633-cab00b8364f1")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J5")
 					(unit 1)
@@ -8675,7 +8675,7 @@
 			(uuid "b2226102-4d48-4cc7-a9c3-5ddff23210fc")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR14")
 					(unit 1)
@@ -8741,7 +8741,7 @@
 			(uuid "92118327-2893-4294-8281-0006ef15241a")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R11")
 					(unit 1)
@@ -8882,7 +8882,7 @@
 			(uuid "2a8e123f-4812-48c0-85de-99a696f4038e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "U1")
 					(unit 1)
@@ -8946,7 +8946,7 @@
 			(uuid "4305ed03-5384-438e-b68a-a15fb18ad890")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR03")
 					(unit 1)
@@ -9012,7 +9012,7 @@
 			(uuid "20f141d4-8eb2-4b10-a50c-c227ef2a5c41")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R14")
 					(unit 1)
@@ -9076,7 +9076,7 @@
 			(uuid "1975d082-310c-44bb-bd74-4764b5351aab")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR26")
 					(unit 1)
@@ -9140,7 +9140,7 @@
 			(uuid "5810ec22-ed5f-4c06-b5c9-5d58b4d00f79")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR37")
 					(unit 1)
@@ -9204,7 +9204,7 @@
 			(uuid "80f8d9a0-fa6e-444e-ae31-d629f223ab22")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR33")
 					(unit 1)
@@ -9268,7 +9268,7 @@
 			(uuid "73de35e8-c4a1-4fad-906f-a2cf19f66553")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR02")
 					(unit 1)
@@ -9334,7 +9334,7 @@
 			(uuid "d74ede07-0edf-49e4-b6fc-7a50550b2f49")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J7")
 					(unit 1)
@@ -9398,7 +9398,7 @@
 			(uuid "5c4fb43f-abde-4c1f-82e3-547246c2bbdd")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#FLG09")
 					(unit 1)
@@ -9462,7 +9462,7 @@
 			(uuid "acc490de-774f-498c-b2d5-a93a7bd2ea5e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR04")
 					(unit 1)
@@ -9526,7 +9526,7 @@
 			(uuid "2c604ec9-a4ee-4714-ac33-5daccf475c41")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#FLG12")
 					(unit 1)
@@ -9592,7 +9592,7 @@
 			(uuid "ead03595-82f3-4305-99a9-d2258efacd98")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R13")
 					(unit 1)
@@ -9664,7 +9664,7 @@
 			(uuid "300314ee-9bf1-40e0-be02-7a1c941e83f7")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J6")
 					(unit 1)
@@ -9733,7 +9733,7 @@
 			(uuid "900950f4-05d3-4f01-a813-0043ea3c225c")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED5")
 					(unit 1)
@@ -9797,7 +9797,7 @@
 			(uuid "ded1818f-98ca-417a-9bcd-b8b533012c16")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR23")
 					(unit 1)
@@ -9861,7 +9861,7 @@
 			(uuid "c470fd8b-3da6-4d10-81cc-1498f8e75a0b")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR29")
 					(unit 1)
@@ -9930,7 +9930,7 @@
 			(uuid "fa0e40b1-c045-4ada-8a43-2abb85412252")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED1")
 					(unit 1)
@@ -9994,7 +9994,7 @@
 			(uuid "2e2001eb-f7e1-4068-b6d3-965dfc10245c")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR13")
 					(unit 1)
@@ -10075,7 +10075,7 @@
 			(uuid "58c6a6e1-ab12-41af-96f3-c760864f1d69")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J3")
 					(unit 1)
@@ -10147,7 +10147,7 @@
 			(uuid "6644a549-5e7c-4858-99a9-cb91951748a8")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "CN1")
 					(unit 1)
@@ -10213,7 +10213,7 @@
 			(uuid "be27e5c8-7801-4605-b0e0-c077333cd5ee")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "CN2")
 					(unit 1)
@@ -10279,7 +10279,7 @@
 			(uuid "d278c974-e7c0-4e63-8bd6-831a9e8d61ee")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R6")
 					(unit 1)
@@ -10348,7 +10348,7 @@
 			(uuid "3c2d860b-9994-4562-9aa2-53c7e065e68a")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J8")
 					(unit 1)
@@ -10412,7 +10412,7 @@
 			(uuid "9a20669e-dd17-49e9-b7c3-d1463ce11491")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR28")
 					(unit 1)
@@ -10476,7 +10476,7 @@
 			(uuid "4658a3a9-8d32-45e8-9353-2bf61d03c5af")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR31")
 					(unit 1)
@@ -10540,7 +10540,7 @@
 			(uuid "700f9345-56fe-40e9-8c50-09450e54cf53")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR22")
 					(unit 1)
@@ -10648,7 +10648,7 @@
 			(uuid "3e70af4b-ce5c-465c-a1a5-2c9eb1e4ef52")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J1")
 					(unit 1)
@@ -10712,7 +10712,7 @@
 			(uuid "e205bda1-53df-423f-a6d3-7473d1c4679d")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR35")
 					(unit 1)
@@ -10778,7 +10778,7 @@
 			(uuid "b2ed5261-6084-4f34-8b73-c82faf1c252e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "CN3")
 					(unit 1)
@@ -10844,7 +10844,7 @@
 			(uuid "ca6e5315-72a1-47ed-9008-e1996b01e589")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R5")
 					(unit 1)
@@ -10913,7 +10913,7 @@
 			(uuid "fb61897f-0210-4532-a152-620b11e57c74")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED2")
 					(unit 1)
@@ -10977,7 +10977,7 @@
 			(uuid "77d6d7c6-7aeb-40c9-a0b5-03c529e4c889")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR19")
 					(unit 1)
@@ -11046,7 +11046,7 @@
 			(uuid "b779b8bf-f576-4fd8-a28d-1d7d9b07dbba")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J4")
 					(unit 1)
@@ -11112,7 +11112,7 @@
 			(uuid "ed349067-3c5f-441f-9105-53b0a8ad6c9e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R16")
 					(unit 1)
@@ -11176,7 +11176,7 @@
 			(uuid "4b0bb074-4a57-4657-930a-49bfb44c57ef")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR39")
 					(unit 1)
@@ -11244,7 +11244,7 @@
 			(uuid "87ff6841-d9ca-464a-be22-9fab36acb517")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R17")
 					(unit 1)
@@ -11310,7 +11310,7 @@
 			(uuid "8255b30a-eb92-463f-8ac4-385f6530066b")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R4")
 					(unit 1)
@@ -11379,7 +11379,7 @@
 			(uuid "761d581f-3896-467e-8aa5-0b9f3e0d219b")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED3")
 					(unit 1)
@@ -11445,7 +11445,7 @@
 			(uuid "f7ae8c5a-8ed8-4fcf-8e78-a36350de9556")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R15")
 					(unit 1)
@@ -11509,7 +11509,7 @@
 			(uuid "fcdcc4d8-ac96-4382-8aac-4fcc65aa14be")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR18")
 					(unit 1)
@@ -11573,7 +11573,7 @@
 			(uuid "09bd6baa-50c0-4f9f-b003-6848d29a81a7")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR15")
 					(unit 1)
@@ -11651,7 +11651,7 @@
 			(uuid "6ce70a55-6d81-454c-a3ae-f5015f2f23fb")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J2")
 					(unit 1)
@@ -11720,7 +11720,7 @@
 			(uuid "3fc48b9f-f947-4e9a-b075-7823bbe1874d")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED6")
 					(unit 1)
@@ -11798,7 +11798,7 @@
 			(uuid "c618a1cc-8c9a-415d-8c8a-463dac0aa5cc")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "J9")
 					(unit 1)
@@ -11864,7 +11864,7 @@
 			(uuid "76e373dc-2464-4eec-86c9-2759e434b671")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R10")
 					(unit 1)
@@ -11930,7 +11930,7 @@
 			(uuid "c4545208-e9d8-4a32-8316-f525f3630cc2")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R1")
 					(unit 1)
@@ -11994,7 +11994,7 @@
 			(uuid "ae7aaacc-4c8b-4d2b-88d6-ea5c680a82cc")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR08")
 					(unit 1)
@@ -12058,7 +12058,7 @@
 			(uuid "a98dbaef-1220-461a-a6ee-0f19fa49d562")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR05")
 					(unit 1)
@@ -12127,7 +12127,7 @@
 			(uuid "6f1071c8-c98e-45b2-9b84-2ec4d3689dc1")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED8")
 					(unit 1)
@@ -12191,7 +12191,7 @@
 			(uuid "c8a72910-0c29-4ce6-8a47-0ba31447dc53")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR36")
 					(unit 1)
@@ -12259,7 +12259,7 @@
 			(uuid "023a9dd6-df5d-4733-babb-1e8a0a4378c4")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "C1")
 					(unit 1)
@@ -12323,7 +12323,7 @@
 			(uuid "94aa0936-722f-45ba-bd6e-4b0711f9023e")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR17")
 					(unit 1)
@@ -12392,7 +12392,7 @@
 			(uuid "b23ccabe-b184-4c9f-8911-9f8593aa0315")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "LED4")
 					(unit 1)
@@ -12456,7 +12456,7 @@
 			(uuid "906d0302-cd44-4fd0-ac6a-ec384ba85685")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR24")
 					(unit 1)
@@ -12520,7 +12520,7 @@
 			(uuid "44ae5814-eb95-436f-ab74-3ef56b942385")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR11")
 					(unit 1)
@@ -12586,7 +12586,7 @@
 			(uuid "5a596420-75ce-4c5e-86a3-24eb7b06b6fc")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "R3")
 					(unit 1)
@@ -12650,7 +12650,7 @@
 			(uuid "0b53e21e-0814-4245-9420-ba5fd0e73c2d")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR32")
 					(unit 1)
@@ -12714,7 +12714,7 @@
 			(uuid "80e36868-f138-453b-bf64-c2e06ab4aef7")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR30")
 					(unit 1)
@@ -12778,7 +12778,7 @@
 			(uuid "a04dd0bd-d775-492d-aff7-09ca839e71fd")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR27")
 					(unit 1)
@@ -12842,7 +12842,7 @@
 			(uuid "9deaa1be-ec03-4fd4-b0bc-25bacbfd4cd5")
 		)
 		(instances
-			(project "CRSF-Multiswitch-Sound-ESP32-S3"
+			(project "RC-Multiswitch-Sound-ESP32-S3"
 				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
 					(reference "#PWR34")
 					(unit 1)
