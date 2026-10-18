@@ -19,8 +19,8 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 
 - Lastspannung 3S LiPo, 9-12,6 V (VLOAD) an CN2 (JST PH 2), TVS-Diode P6KE15A als Schutz.
 - Treiber ULN2803A, 8 Kanaele, max. 500 mA je Kanal (Verlustleistung des ULN2803A bei mehreren Kanaelen beachten).
-- R9-R16 (THT 1/4 W, Standard 150 R) zwischen ULN-Ausgang und Stiftleiste J1, je nach Verbraucher waehlen.
-- R1-R8 und LED1-LED8 (3 mm) als Kontroll-LED je Kanal, vom Steuersignal Sn gegen GND.
+- R9-R16 (THT 1/4 W) zwischen ULN-Ausgang und Stiftleiste J1: Es ist kein Wert vorgegeben. Der Anwender muss die Widerstaende selbst passend zu Verbraucher und Lastspannung (3S, 9-12,6 V) auslegen, Strom und Verlustleistung beachten.
+- R1-R8 und LED1-LED8 (3 mm) als Kontroll-LED je Kanal, vom Steuersignal Sn (3,3 V) gegen GND. Auch hier legt der Anwender die Werte selbst fest. Eine Empfehlung fuer die Kontroll-LEDs steht im Schaltplan.
 - Keine Pulldowns und keine Widerstaende in den UART-Leitungen. Der ESP32 wird aus +5 V von CN1 (BEC/Empfaenger) versorgt.
 
 ### Belegung
@@ -61,7 +61,7 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 - Firmware: noch nicht begonnen. Basis kann die Sound-Mini-Firmware (ESP32-Sound-Mini-S3) sein.
 
 ## Offene Punkte
-- R9-R16 (Platzhalter 150 R) fuer 3S-Betrieb (ca. 11-12 V) je Verbraucher auslegen; Helligkeit schwankt mit dem Ladezustand.
+- R1-R16 vom Anwender je LED bzw. Verbraucher auslegen (3S, ca. 11-12 V); Helligkeit schwankt mit dem Ladezustand.
 - Schaltplan v0.8 im PCB per F8 (Aktualisieren aus Schaltplan) uebernehmen: J10, R18, R19, J3, J4, R17, J7, J8 entfallen (Footprints ohne Symbol loeschen lassen), J2, J9 und J11 bekommen die neuen Modul-Footprints (J11 jetzt TPA3118 mit 6 Pads), CN3 entfaellt, CN4 (Lautsprecher) ist neu. hardware/*.pdf ist noch der Stand v0.1.
 - ERC mit v0.8 neu ausfuehren; Symbolbibliothek "local" einbinden (reduziert die Warnungen).
 - TPA3118-Modul (HW-327): Modul-Mindestspannung 8 V beachten (3S-Akku nicht unter ca. 9 V entladen, Abschaltung ueber Fahrregler/Unterspannungswaechter), MUTE-Header offen, Leiterbahnbreite und Stromaufnahme gegen CN2/CN4 (JST PH, ca. 2 A je Kontakt) pruefen.
