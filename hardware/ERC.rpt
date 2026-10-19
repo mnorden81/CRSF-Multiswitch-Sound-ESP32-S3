@@ -1,6 +1,15 @@
-ERC-Bericht (2026-10-17T22:47:20+0200, UTF8-kodiert)
+ERC-Bericht (2026-10-19T17:54:46+0200, UTF8-kodiert)
 
 ***** Schaltplan /
+[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(1000 mils, 1200 mils): Symbol #PWR104 [GND]
+[lib_symbol_mismatch]: Symbol "NetTie_2" stimmt nicht mit Kopie in Bibliothek "Device" überein
+    ; warning
+    @(1300 mils, 1100 mils): Symbol NT1 [NetTie_2]
+[lib_symbol_mismatch]: Symbol "GNDPWR" stimmt nicht mit Kopie in Bibliothek "power" überein
+    ; warning
+    @(1600 mils, 1200 mils): Symbol #PWR105 [GNDPWR]
 [lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
     ; warning
     @(900 mils, 2200 mils): Symbol #PWR05 [GND]
@@ -28,12 +37,6 @@ ERC-Bericht (2026-10-17T22:47:20+0200, UTF8-kodiert)
 [lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
     ; warning
     @(3000 mils, 4200 mils): Symbol U1 [ESP32-S3-DevKitC-1]
-[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
-    ; warning
-    @(4800 mils, 2200 mils): Symbol #PWR08 [GND]
-[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
-    ; warning
-    @(5300 mils, 2100 mils): Symbol CN3 [Conn_TPA_Pwr]
 [lib_symbol_mismatch]: Symbol "LED" stimmt nicht mit Kopie in Bibliothek "Device" überein
     ; warning
     @(5400 mils, 3300 mils): Symbol LED1 [LED]
@@ -109,9 +112,9 @@ ERC-Bericht (2026-10-17T22:47:20+0200, UTF8-kodiert)
 [lib_symbol_mismatch]: Symbol "+5V" stimmt nicht mit Kopie in Bibliothek "power" überein
     ; warning
     @(200 mils, 8200 mils): Symbol #PWR29 [+5V]
-[lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
+[lib_symbol_mismatch]: Symbol "GNDPWR" stimmt nicht mit Kopie in Bibliothek "power" überein
     ; warning
-    @(6500 mils, 5100 mils): Symbol #PWR14 [GND]
+    @(6500 mils, 5100 mils): Symbol #PWR14 [GNDPWR]
 [lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
     ; warning
     @(200 mils, 8300 mils): Symbol #PWR30 [GND]
@@ -138,10 +141,22 @@ ERC-Bericht (2026-10-17T22:47:20+0200, UTF8-kodiert)
     @(3600 mils, 9700 mils): Symbol #PWR102 [GND]
 [lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
     ; warning
-    @(4400 mils, 9600 mils): Symbol J11 [Conn_TPA_In]
+    @(4400 mils, 9600 mils): Symbol J11 [Mod_TPA3118]
+[endpoint_off_grid]: Symbolpin oder Verbindungsende liegt nicht auf Verbindungsraster
+    ; warning
+    @(4800 mils, 9600 mils): Horizontale Verbindung, Länge 706 mils
+[endpoint_off_grid]: Symbolpin oder Verbindungsende liegt nicht auf Verbindungsraster
+    ; warning
+    @(4800 mils, 9700 mils): Horizontale Verbindung, Länge 706 mils
+[endpoint_off_grid]: Symbolpin oder Verbindungsende liegt nicht auf Verbindungsraster
+    ; warning
+    @(5506 mils, 9700 mils): Symbol CN4 Pin 2 [SPK-, Passive, Line]
 [lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
     ; warning
     @(10300 mils, 4300 mils): Symbol J1 [Conn_Out_2x8]
+[lib_symbol_issues]: Die aktuelle Konfiguration enthält nicht die Symbolbibliothek "local"
+    ; warning
+    @(5906 mils, 9600 mils): Symbol CN4 [Conn_Speaker]
 [lib_symbol_mismatch]: Symbol "GND" stimmt nicht mit Kopie in Bibliothek "power" überein
     ; warning
     @(10800 mils, 8700 mils): Symbol #PWR38 [GND]
@@ -152,4 +167,4 @@ ERC-Bericht (2026-10-17T22:47:20+0200, UTF8-kodiert)
     ; warning
     @(12000 mils, 8400 mils): Symbol J9 [Mod_microSD]
 
- ** ERC-Meldungen: 50  Fehler 0  Warnungen 50
+ ** ERC-Meldungen: 55  Fehler 0  Warnungen 55
