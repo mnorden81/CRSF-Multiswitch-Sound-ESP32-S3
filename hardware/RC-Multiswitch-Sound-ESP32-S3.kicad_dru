@@ -1,0 +1,10 @@
+(version 1)
+
+# Mindestbreiten fuer Strom fuehrende Leitungen (Netzklassen siehe Projekteinstellungen)
+(rule "Power Mindestbreite"
+	(condition "A.NetClass == 'Power'")
+	(constraint track_width (min 1.0mm)))
+
+(rule "Kanal Mindestbreite"
+	(condition "A.NetClass == 'Kanal'")
+	(constraint track_width (min 0.4mm)))

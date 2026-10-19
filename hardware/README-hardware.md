@@ -1,4 +1,4 @@
-# RC-Multiswitch-Sound-ESP32-S3 (v0.8, Entwurf)
+# RC-Multiswitch-Sound-ESP32-S3 (v0.9, Entwurf)
 RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
 
 ## Teile
@@ -27,6 +27,12 @@ Gesperrt: IO0/3/45/46 (Strapping), IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44
 - `footprints.pretty/Mod_microSD_SPI_THT`: microSD-/TF-Modul (Platine ca. 17,7 x 17,6 mm, Slot ragt rechts ca. 2,5 mm ueber), Pad 1..6 = VCC, CS, MOSI, SCK, MISO, GND (wie J9, Pad 1 eckig oben), zwei Befestigungsloecher 2,2 mm. Masse aus dem Foto geschaetzt, Pinreihenfolge laut Beschriftung des echten Moduls pruefen.
 - `footprints.pretty/Mod_TPA3118_HW327_THT`: TPA3118-Modul HW-327 zum Einloeten (ca. 45,4 x 35 mm, 4 Befestigungsloecher 3 mm, Raster 39,7 x 29,1 mm). Pads: 1 IN (eckig), 2 GND, 3 PWR+ (eckig), 4 PWR-, 5 OUT+, 6 OUT-, 7/8 MUTE (nicht im Schaltplan, offen). Lage aus dem Foto geschaetzt (Raster der IN-Pads 2,54 mm als Massstab, OUT/PWR-Pads ca. 3,8 mm): am echten Modul nachmessen. Belegung IN/GND per Multimeter pruefen (GND-Pad hat Durchgang zu PWR-). Die alte Datei `Mod_TPA3118_HW327_Keepout.kicad_mod` ist damit ueberholt und kann geloescht werden.
 - CN4 (Lautsprecher): Standard-Footprint Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal.
+
+## Masse und Leiterbahnbreiten (ab v0.9)
+- Lastmasse getrennt: ULN2803 Pin 9 haengt am Netz **GNDPWR**, nicht an GND. GND (ESP, PCM5102A, microSD, TPA3118) und GNDPWR sind nur ueber den NetTie **NT1** verbunden. NT1 im PCB direkt an CN2 Pin 1 legen. So fliesst der Strom der Verbraucher nicht ueber die Masse von ESP und Audio.
+- Netzklassen (Projekteinstellungen): **Power** 1,5 mm (Vias 1,0/0,5 mm) fuer GND, GNDPWR, /VLOAD und die Lautsprecherleitungen an CN4; **Kanal** 0,5 mm fuer /OUT1../OUT8 und /OUT1L../OUT8L; alles andere 0,2 mm (Default). Der Router (auch Freerouting) nimmt diese Breiten automatisch.
+- Regeldatei `RC-Multiswitch-Sound-ESP32-S3.kicad_dru`: DRC meldet Power-Bahnen unter 1,0 mm und Kanal-Bahnen unter 0,4 mm.
+- Strom: ULN2803 insgesamt eher 1-1,5 A (Waerme), nicht 8 x 500 mA gleichzeitig. Belastbarkeit von R9-R16 (Watt) zum Verbraucherstrom passend waehlen.
 
 ## Hinweise
 - TPA3118-Modul: Betriebsspannung 3S (9-12,6 V) liegt im Bereich des Moduls (8-24 V), Elkos 25 V unkritisch; unter 8 V schaltet es nicht zuverlaessig. Leistung bei 12 V nur einige Watt an 4-8 Ohm. Der Verstaerker kann mehrere Ampere ziehen, die Leiterbahnen (Breite!) von VLOAD zu den Modul-Pads und CN4 (JST PH, ca. 2 A je Kontakt) pruefen. Mono: ein Lautsprecher (4-8 Ohm), BTL-Ausgang, keine Masse am Lautsprecher.

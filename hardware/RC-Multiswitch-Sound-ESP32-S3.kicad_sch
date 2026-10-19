@@ -6,8 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "RC Multiswitch + Sound ESP32-S3 (ULN2803A, I2S, microSD)")
-		(date "2026-10-17")
-		(rev "v0.8")
+		(date "2026-10-19")
+		(rev "v0.9")
 		(comment 1 "Entwurf - vor Layout/Bestellung pruefen")
 		(comment 2 "v0.2: TPA3118 (HW-327, mono) statt TPA3116D2, Mono-Mix R18/R19, J10/J11")
 		(comment 3 "v0.3: MAX98357A (J3, J4, R17, AMP_SD, GAIN_SEL) entfernt")
@@ -16,6 +16,7 @@
 		(comment 6 "v0.6: Mono-Mix-Widerstaende R18/R19 entfernt, PCM5102A-Pad L direkt an J11 (Quelle ist mono), R-Pad unbenutzt")
 		(comment 7 "v0.7: TPA3118-Modul wird eingeloetet (J11 mit 6 Pads, Footprint Mod_TPA3118_HW327_THT), CN3 entfaellt, Lautsprecherausgang als JST PH CN4")
 		(comment 8 "v0.8: Betrieb max. 3S LiPo (9-12,6 V): TVS D1 P6KE33A -> P6KE15A, Beschriftungen angepasst")
+		(comment 9 "v0.9: Lastmasse GNDPWR (ULN2803 Pin 9) ueber NetTie NT1 an CN2, Netzklassen Power/Kanal")
 	)
 	(lib_symbols
 		(symbol "Device:C"
@@ -4228,6 +4229,132 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:NetTie_2"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "NT"
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "NetTie_2"
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Net tie, 2 pins"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "net tie short"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Net*Tie*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "NetTie_2_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "NetTie_2_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power)
 			(pin_names
@@ -4309,6 +4436,176 @@
 					(length 0)
 					(hide yes)
 					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:GNDPWR"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GNDPWR"
+				(at 0 -3.302 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GNDPWR\" , global ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GNDPWR_0_1"
+				(polyline
+					(pts
+						(xy -1.016 -1.27) (xy -1.27 -2.032) (xy -1.27 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 -1.27) (xy -0.762 -2.032) (xy -0.762 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy -0.254 -2.032) (xy -0.254 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 -1.27) (xy 0.254 -2.032) (xy 0.254 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.27) (xy -1.016 -1.27) (xy -1.016 -1.27)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 -1.27) (xy 0.762 -2.032) (xy 0.762 -2.032) (xy 0.762 -2.032)
+					)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GNDPWR_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(hide yes)
+					(name "GNDPWR"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -8244,16 +8541,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "power:GNDPWR")
 		(at 165.1 129.54 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2f395b87-1747-40ac-b029-3367cc9c0699")
+		(uuid "349295f3-4a33-4b57-89be-36624323ea49")
 		(property "Reference" "#PWR14"
-			(at 165.1 129.54 0)
+			(at 165.1 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8261,8 +8558,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 165.1 132.54 0)
+		(property "Value" "GNDPWR"
+			(at 165.1 132.84199999999998 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8293,10 +8590,11 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
-			(uuid "b2226102-4d48-4cc7-a9c3-5ddff23210fc")
+			(uuid "9e54413a-9aa5-4c35-be1f-feb7a5011091")
 		)
 		(instances
 			(project "RC-Multiswitch-Sound-ESP32-S3"
@@ -11959,6 +12257,336 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "Device:NetTie_2")
+		(at 33.02 27.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "cd2a034a-095b-4792-8eb1-43390c8d9509")
+		(property "Reference" "NT1"
+			(at 33.02 25.400000000000002 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "NetTie GND/GNDPWR"
+			(at 33.02 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "NetTie:NetTie-2_SMD_Pad2.0mm"
+			(at 33.02 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Sternpunkt Logik-/Audio-Masse und Lastmasse, direkt an CN2 Pin 1"
+			(at 33.02 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9b50ed7-4d30-48cc-99b6-6302e77e6e8a")
+		)
+		(pin "2"
+			(uuid "2cb02cf8-5509-48eb-9df0-40dc976dec0a")
+		)
+		(instances
+			(project "RC-Multiswitch-Sound-ESP32-S3"
+				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
+					(reference "NT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 30.48 27.94) (xy 25.4 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56598eeb-7809-4980-865d-b28a18588ecc")
+	)
+	(wire
+		(pts
+			(xy 25.4 27.94) (xy 25.4 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa5c4228-8d9f-4540-97b0-c6da4d444382")
+	)
+	(wire
+		(pts
+			(xy 35.56 27.94) (xy 40.64 27.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7584ec55-562b-4891-b8d3-0999c6ab3620")
+	)
+	(wire
+		(pts
+			(xy 40.64 27.94) (xy 40.64 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "caa56ff3-e36b-4c53-a8e3-ec0537e11f27")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 25.4 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e995dd55-4ef5-45d4-a638-a80199d2129b")
+		(property "Reference" "#PWR104"
+			(at 25.4 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 25.4 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 25.4 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 25.4 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0749ab40-937e-4233-bb1f-0f7c626fbab7")
+		)
+		(instances
+			(project "RC-Multiswitch-Sound-ESP32-S3"
+				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
+					(reference "#PWR104")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDPWR")
+		(at 40.64 30.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d8c0a0f9-8236-428b-9409-d0cfcf0372fc")
+		(property "Reference" "#PWR105"
+			(at 40.64 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDPWR"
+			(at 40.64 33.782000000000004 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ea9e2184-91b1-4e65-8561-ea06524392a5")
+		)
+		(instances
+			(project "RC-Multiswitch-Sound-ESP32-S3"
+				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
+					(reference "#PWR105")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 40.64 27.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b380ce1b-ca29-427b-8c3a-73524f6a0b05")
+		(property "Reference" "#FLG13"
+			(at 40.64 26.035 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 40.64 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 40.64 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ddf39645-ac5a-44bf-9e56-e4f9a6d6b4ab")
+		)
+		(instances
+			(project "RC-Multiswitch-Sound-ESP32-S3"
+				(path "/e2fadea6-822e-490b-9be0-b4a472d338fa"
+					(reference "#FLG13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(junction
+		(at 40.64 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "396a64e9-203f-4282-a961-c5e5ae9b7b5e")
+	)
+	(text "NT1: einzige Verbindung GND <-> GNDPWR (Sternpunkt).\nIm PCB direkt an CN2 Pin 1 platzieren."
+		(exclude_from_sim no)
+		(at 17.78 22.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "88280a98-a1d1-4853-99fc-79e39e5712be")
+	)
+	(text "GNDPWR = Lastmasse ULN2803 (Pin 9),\neigene breite Bahn direkt zu NT1/CN2"
+		(exclude_from_sim no)
+		(at 170.18 134.62 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ff35970a-7dc9-49f3-aa40-bbfb4a8e8bd9")
 	)
 	(sheet_instances
 		(path "/"
