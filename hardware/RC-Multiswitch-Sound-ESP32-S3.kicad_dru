@@ -1,8 +1,10 @@
 (version 1)
 
 # Mindestbreiten fuer Strom fuehrende Leitungen (Netzklassen siehe Projekteinstellungen)
+# GND ist in der Klasse Power (Standardbreite 1,5 mm), darf aber duenner sein,
+# z. B. an den Kontroll-LEDs. Breite GND-Wege (TPA3118, CN2) bitte von Hand pruefen.
 (rule "Power Mindestbreite"
-	(condition "A.NetClass == 'Power'")
+	(condition "A.NetClass == 'Power' && A.NetName != 'GND'")
 	(constraint track_width (min 1.0mm)))
 
 (rule "Kanal Mindestbreite"
