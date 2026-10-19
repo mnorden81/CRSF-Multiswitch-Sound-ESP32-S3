@@ -1,96 +1,107 @@
 ** Drc report for RC-Multiswitch-Sound-ESP32-S3.kicad_pcb **
-** Created on 2026-10-19T23:05:05+0200 **
+** Created on 2026-10-20T00:18:59+0200 **
 
-** Found 29 DRC violations **
+** Found 28 DRC violations **
 [courtyards_overlap]: Abstandsflächenüberschneidung
-    Regel: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    Regel: board setup constraints courtyard; error
     @(178,3000 mm, 87,6500 mm): Footprint J2
     @(186,9300 mm, 94,8000 mm): Footprint U1
 [courtyards_overlap]: Abstandsflächenüberschneidung
-    Regel: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    Regel: board setup constraints courtyard; error
     @(168,3000 mm, 100,3800 mm): Footprint J9
     @(186,9300 mm, 94,8000 mm): Footprint U1
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(223,4500 mm, 120,0983 mm): Leiterbahn [GND] auf B.Cu, Länge 10,9578 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(223,4500 mm, 129,9000 mm): Leiterbahn [GND] auf B.Cu, Länge 9,8017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(225,5100 mm, 131,9600 mm): Leiterbahn [GND] auf B.Cu, Länge 2,9133 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(226,3483 mm, 107,5000 mm): Leiterbahn [GND] auf F.Cu, Länge 6,8589 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(238,5300 mm, 112,3500 mm): Leiterbahn [GND] auf F.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(242,1850 mm, 110,4483 mm): Leiterbahn [GND] auf F.Cu, Länge 3,6550 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(213,6000 mm, 107,5000 mm): Leiterbahn [GND] auf F.Cu, Länge 12,7483 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(244,0867 mm, 112,3500 mm): Leiterbahn [GND] auf F.Cu, Länge 2,6894 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(233,1000 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(238,5300 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(247,1919 mm, 108,2530 mm): Leiterbahn [GND] auf B.Cu, Länge 11,4013 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(238,5300 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(249,5800 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(247,6783 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 0,4864 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(247,1919 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,1052 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(236,6283 mm, 114,2517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,5283 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(244,0867 mm, 114,2517 mm): Leiterbahn [GND] auf B.Cu, Länge 5,4933 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(249,5800 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(242,1850 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,6550 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(238,5300 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 5,4300 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(244,0867 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(244,0867 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(244,0867 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(233,1000 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(249,5800 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(249,5800 mm, 110,4483 mm): Leiterbahn [GND] auf B.Cu, Länge 0,1928 mm
-[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
-    Regel: Power Mindestbreite; error
-    @(249,3872 mm, 110,4483 mm): Leiterbahn [GND] auf B.Cu, Länge 3,1046 mm
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,5000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(178,3000 mm, 135,3000 mm): Platinen-Text "Lautsprecher" auf F.Silkscreen
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 100,3500 mm): Footprint-Text von J2 (VIN)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 92,7300 mm): Footprint-Text von J2 (DIN)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 95,2700 mm): Footprint-Text von J2 (LCK)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 97,8100 mm): Footprint-Text von J2 (GND)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 90,1900 mm): Footprint-Text von J2 (BCK)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,7000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(181,3000 mm, 87,6500 mm): Footprint-Text von J2 (SCK)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 87,6800 mm): Footprint-Text von J9 (GND)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 92,7600 mm): Footprint-Text von J9 (SCK)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 90,2200 mm): Footprint-Text von J9 (MISO)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 100,3800 mm): Footprint-Text von J9 (VCC)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 97,8400 mm): Footprint-Text von J9 (CS)
+[text_height]: Schrifthöhe außerhalb des zulässigen Bereichs (board setup constraints silk text height min. Breite 0,8000 mm; tatsächlich 0,6000 mm)
+    Regel: board setup constraints silk text height; warning
+    @(165,9000 mm, 95,3000 mm): Footprint-Text von J9 (MOSI)
+[silk_over_copper]: Bestückungsdruck überlappt Lötstoppmaske
+    Lokale Überschreibung; warning
+    @(192,3000 mm, 83,0500 mm): Referenzfeld von J2
+[silk_over_copper]: Bestückungsdruck überlappt Lötstoppmaske
+    Lokale Überschreibung; warning
+    @(165,9000 mm, 87,6800 mm): Footprint-Text von J9 (GND)
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(244,3000 mm, 109,2400 mm): Referenzfeld von LED6
+    @(242,4000 mm, 109,7795 mm): Platinen-Text "LED6" auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(247,3500 mm, 109,7795 mm): Platinen-Text "LED5" auf F.Silkscreen
+    @(249,2700 mm, 109,2400 mm): Referenzfeld von LED5
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(239,1800 mm, 109,2400 mm): Referenzfeld von LED7
+    @(237,3000 mm, 109,7795 mm): Platinen-Text "LED7" auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(160,7000 mm, 129,2000 mm): Referenzfeld von CN1
+    @(161,8000 mm, 128,9500 mm): Platinen-Text "A (IN)
+TX RX + -" auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(221,9300 mm, 80,7000 mm): Rechteck von U1 auf F.Silkscreen
+    @(169,3000 mm, 103,2800 mm): Rechteck von J9 auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(232,4500 mm, 109,7795 mm): Platinen-Text "LED8
+" auf F.Silkscreen
+    @(234,3000 mm, 109,2400 mm): Referenzfeld von LED8
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(232,4000 mm, 91,8500 mm): Platinen-Text "LED4" auf F.Silkscreen
+    @(234,3000 mm, 91,3400 mm): Referenzfeld von LED4
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(221,9300 mm, 80,7000 mm): Rechteck von U1 auf F.Silkscreen
+    @(221,9900 mm, 97,2000 mm): Referenzfeld von U1
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(244,3000 mm, 91,3400 mm): Referenzfeld von LED2
+    @(242,5000 mm, 91,8500 mm): Platinen-Text "LED2" auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(249,7000 mm, 91,3400 mm): Referenzfeld von LED1
+    @(249,7000 mm, 91,3105 mm): Platinen-Text "LED1
+" auf F.Silkscreen
+[silk_overlap]: Bestückungsdrucküberlappung
+    Regel: board setup constraints silk; warning
+    @(237,3500 mm, 91,8500 mm): Platinen-Text "LED3" auf F.Silkscreen
+    @(239,1800 mm, 91,3400 mm): Referenzfeld von LED3
 
 ** Found 0 unconnected pads **
 
