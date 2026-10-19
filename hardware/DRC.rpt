@@ -1,0 +1,99 @@
+** Drc report for RC-Multiswitch-Sound-ESP32-S3.kicad_pcb **
+** Created on 2026-10-19T23:05:05+0200 **
+
+** Found 29 DRC violations **
+[courtyards_overlap]: Abstandsflächenüberschneidung
+    Regel: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(178,3000 mm, 87,6500 mm): Footprint J2
+    @(186,9300 mm, 94,8000 mm): Footprint U1
+[courtyards_overlap]: Abstandsflächenüberschneidung
+    Regel: Einschränkungen aus Platinenkonfiguration zur Abstandsfläche; error
+    @(168,3000 mm, 100,3800 mm): Footprint J9
+    @(186,9300 mm, 94,8000 mm): Footprint U1
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(223,4500 mm, 120,0983 mm): Leiterbahn [GND] auf B.Cu, Länge 10,9578 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(223,4500 mm, 129,9000 mm): Leiterbahn [GND] auf B.Cu, Länge 9,8017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(225,5100 mm, 131,9600 mm): Leiterbahn [GND] auf B.Cu, Länge 2,9133 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(226,3483 mm, 107,5000 mm): Leiterbahn [GND] auf F.Cu, Länge 6,8589 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(238,5300 mm, 112,3500 mm): Leiterbahn [GND] auf F.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(242,1850 mm, 110,4483 mm): Leiterbahn [GND] auf F.Cu, Länge 3,6550 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(213,6000 mm, 107,5000 mm): Leiterbahn [GND] auf F.Cu, Länge 12,7483 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(244,0867 mm, 112,3500 mm): Leiterbahn [GND] auf F.Cu, Länge 2,6894 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(233,1000 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(238,5300 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(247,1919 mm, 108,2530 mm): Leiterbahn [GND] auf B.Cu, Länge 11,4013 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(238,5300 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(249,5800 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(247,6783 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 0,4864 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(247,1919 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,1052 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(236,6283 mm, 114,2517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,5283 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(244,0867 mm, 114,2517 mm): Leiterbahn [GND] auf B.Cu, Länge 5,4933 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(249,5800 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(242,1850 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 3,6550 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(238,5300 mm, 96,8517 mm): Leiterbahn [GND] auf B.Cu, Länge 5,4300 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(244,0867 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(244,0867 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(244,0867 mm, 112,3500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(233,1000 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 1,9017 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(249,5800 mm, 94,9500 mm): Leiterbahn [GND] auf B.Cu, Länge 2,6894 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(249,5800 mm, 110,4483 mm): Leiterbahn [GND] auf B.Cu, Länge 0,1928 mm
+[track_width]: Leiterbahnbreite (Einschränkungen aus Platinenkonfiguration min Breite 1,0000 mm; tatsächlich 0,5000 mm)
+    Regel: Power Mindestbreite; error
+    @(249,3872 mm, 110,4483 mm): Leiterbahn [GND] auf B.Cu, Länge 3,1046 mm
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **
