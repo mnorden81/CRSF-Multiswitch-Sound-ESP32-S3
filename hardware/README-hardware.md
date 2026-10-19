@@ -31,7 +31,7 @@ Gesperrt: IO0/3/45/46 (Strapping), IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44
 ## Masse und Leiterbahnbreiten (ab v0.9)
 - Lastmasse getrennt: ULN2803 Pin 9 haengt am Netz **GNDPWR**, nicht an GND. GND (ESP, PCM5102A, microSD, TPA3118) und GNDPWR sind nur ueber den NetTie **NT1** verbunden. NT1 im PCB direkt an CN2 Pin 1 legen. So fliesst der Strom der Verbraucher nicht ueber die Masse von ESP und Audio.
 - Netzklassen (Projekteinstellungen): **Power** 1,5 mm (Vias 1,0/0,5 mm) fuer GND, GNDPWR, /VLOAD und die Lautsprecherleitungen an CN4; **Kanal** 0,5 mm fuer /OUT1../OUT8 und /OUT1L../OUT8L; alles andere 0,2 mm (Default). Der Router (auch Freerouting) nimmt diese Breiten automatisch.
-- Regeldatei `RC-Multiswitch-Sound-ESP32-S3.kicad_dru`: DRC meldet Power-Bahnen unter 1,0 mm und Kanal-Bahnen unter 0,4 mm.
+- Regeldatei `RC-Multiswitch-Sound-ESP32-S3.kicad_dru`: DRC meldet Bahnen von VLOAD, GNDPWR und Lautsprecher unter 1,0 mm und Kanal-Bahnen unter 0,4 mm. GND darf duenner sein (z. B. LEDs), breite GND-Wege zu TPA3118 und CN2 von Hand pruefen.
 - Strom: ULN2803 insgesamt eher 1-1,5 A (Waerme), nicht 8 x 500 mA gleichzeitig. Belastbarkeit von R9-R16 (Watt) zum Verbraucherstrom passend waehlen.
 
 ## Hinweise
