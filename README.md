@@ -62,6 +62,7 @@ Neu gegenueber den Basis-Firmwares (Entscheidungen 21.-28.10.2026):
 ## Ordner
 - `hardware/`: KiCad-Projekt (Schaltplan, PCB, PDF, eigene Footprints, fp-lib-table). Entwurfsnotizen in [hardware/README-hardware.md](hardware/README-hardware.md).
 - `firmware/`: Firmware (Arduino-Sketch `RC_Multiswitch_Sound`), Build in GitHub Actions.
+- `hardware/gehaeuse/`: 3D-Druck-Gehaeuse (STL, STEP, CadQuery-Quelle), siehe [hardware/gehaeuse/README.md](hardware/gehaeuse/README.md).
 - `docs/`: Projektbeschreibung als DOCX.
 
 ## Stand
@@ -76,4 +77,5 @@ Neu gegenueber den Basis-Firmwares (Entscheidungen 21.-28.10.2026):
 - microSD-Modul muss ein reines 3,3-V-Modul sein (Standard-Module mit Spannungsregler bekommen sonst zu wenig Spannung); Pinreihenfolge am Modul gegen J9 (VCC, CS, MOSI, SCK, MISO, GND) pruefen.
 - Module nachmessen und Footprints anpassen: PCM5102A, microSD-Modul, TPA3118 (Padlage, Befestigungsloecher, Belegung IN/GND per Multimeter pruefen), ESP32-S3-DevKitC-1.
 - PCB-Layout erstellen
+- Gehaeuse (hardware/gehaeuse/) am echten Aufbau pruefen: Hoehe Elko C1 (22 mm angenommen), ESP 13 mm ueber der Platine, Lage USB-C und microSD-Slot
 - Firmware v1.00 auf der Platine testen (Ausgaenge, Sound, SD-Karte, Status-LED IO48/IO38)
