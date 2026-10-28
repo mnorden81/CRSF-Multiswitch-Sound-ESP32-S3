@@ -45,20 +45,28 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 - Footprint ESP32-S3-DevKitC-1_THT mit Reihenabstand 25,4 mm. Vor dem Layout am echten Board nachmessen. Eigene Footprints fuer PCM5102A, microSD-Modul und TPA3118-Modul liegen in hardware/footprints.pretty; die Masse sind aus Fotos geschaetzt und vor dem Layout nachzumessen.
 - Nicht gleichzeitig USB und BEC anschliessen, ohne die Schutzdiode des Boards zu pruefen.
 
-## Firmware (geplant)
-- CRSF als einziges Protokoll, busfaehig ueber die UART-Anschluesse (Eingang plus Weiterleitung zum naechsten Modul).
-- Gemeinsame CRSF-Bibliothek als Kopie im Projekt (firmware/lib), keine externe Abhaengigkeit.
-- Einstellung der Adresse und Parameter ueber CRSF-Parameter (Lua am Sender) und Web-UI.
-- Build mit PlatformIO, Bauweise wie bei den Sound-Mini-Repos.
+## Firmware (v1.00, nicht auf Hardware getestet)
+Arduino-Sketch [firmware/RC_Multiswitch_Sound](firmware/RC_Multiswitch_Sound), Beschreibung in [firmware/README.md](firmware/README.md).
+
+Reine Zusammenfuehrung von zwei bestehenden Firmwares:
+- Schaltteil: RC-Multiswitch-ESP32-S3 v4.06 (= ESP32-Multiswitch-Basis V3/TXRX mit S3-Teilen): 8 Ausgaenge, Blinken, PWM, MWprop, bis 3 Konfigurationen je Ausgang, MKan-Gruppen, CRSF-Modulkette.
+- Soundteil: ESP32-Sound-Basis_Ziege-One v7.21: Motor (start/loop/shut) und 24 Sounds von der SD-Karte, Upload der WAV-Dateien per WLAN.
+- Gemeinsam: RC-System (CRSF oder SBUS auf UART A), WLAN und Web-UI, Lua-Menue am Sender, UART B/C (CRSF-Modulkette, S.Port, GPS, Raw), Firmware-Update per WLAN, Einstellungs-Backup im Flash und auf der SD-Karte.
+
+Neu gegenueber den Basis-Firmwares (Entscheidungen 21.-28.10.2026):
+- Zwei Adressen: Schalt-Adresse (Ausgaenge, zugleich CRSF-Geraeteadresse) und Sound-Adresse (Einzelkanal-Sounds). Gleiche Zahl = dieselben Schalter schalten beides.
+- Status-LED in der Web-UI waehlbar: IO48 (DevKitC-1 v1.0, Vorgabe) oder IO38 (v1.1).
+- Lua-Menue zeigt die ersten 8 Sounds, in der Web-UI auf bis zu 23 erhoehbar (Grenze: 255 Lua-Felder). In der Web-UI sind immer alle 24 Sounds einstellbar.
+- Eigener Name je Sound und je Ausgang (16 Zeichen), Vorgabe "Sound N" bzw. "Ausgang N".
 
 ## Ordner
 - `hardware/`: KiCad-Projekt (Schaltplan, PCB, PDF, eigene Footprints, fp-lib-table). Entwurfsnotizen in [hardware/README-hardware.md](hardware/README-hardware.md).
-- `firmware/`: Firmware, noch nicht begonnen.
+- `firmware/`: Firmware (Arduino-Sketch `RC_Multiswitch_Sound`), Build in GitHub Actions.
 - `docs/`: Projektbeschreibung als DOCX.
 
 ## Stand
 - Hardware: Schaltplan v0.8, PCB in Arbeit. ERC-Stand v0.3 (hardware/ERC.rpt): 1 Fehler (IO8 unbeschaltet, seit v0.4 mit No-Connect-Flag, plus Rest-Leitungsstueck entfernt) und 55 Warnungen (Bibliotheksversionen "power"/"Device"/"local", harmlos). Nach v0.8 ERC neu ausfuehren.
-- Firmware: noch nicht begonnen. Basis kann die Sound-Mini-Firmware (ESP32-Sound-Mini-S3) sein.
+- Firmware: v1.00 (Multiswitch V3 + Sound-Basis v7.21), baut in GitHub Actions, auf Hardware noch nicht getestet.
 
 ## Offene Punkte
 - R1-R16 vom Anwender je LED bzw. Verbraucher auslegen (3S, ca. 11-12 V); Helligkeit schwankt mit dem Ladezustand.
@@ -68,4 +76,4 @@ Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 - microSD-Modul muss ein reines 3,3-V-Modul sein (Standard-Module mit Spannungsregler bekommen sonst zu wenig Spannung); Pinreihenfolge am Modul gegen J9 (VCC, CS, MOSI, SCK, MISO, GND) pruefen.
 - Module nachmessen und Footprints anpassen: PCM5102A, microSD-Modul, TPA3118 (Padlage, Befestigungsloecher, Belegung IN/GND per Multimeter pruefen), ESP32-S3-DevKitC-1.
 - PCB-Layout erstellen
-- Firmware schreiben (Multiswitch + Sound)
+- Firmware v1.00 auf der Platine testen (Ausgaenge, Sound, SD-Karte, Status-LED IO48/IO38)
