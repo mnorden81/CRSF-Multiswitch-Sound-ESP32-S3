@@ -1,0 +1,49 @@
+name: Firmware bauen
+
+# Gemeinsame CI aller ESP32-Module (RC_Common 1.2.0): RC_Common-Kopie
+# pruefen, Host-Tests, Firmware mit festem Core bauen, App- und
+# Komplett-Image hochladen.
+on:
+  push:
+    paths: ["firmware/**", ".github/workflows/firmware.yml"]
+  pull_request:
+    paths: ["firmware/**", ".github/workflows/firmware.yml"]
+  workflow_dispatch:
+
+env:
+  RC_COMMON: firmware/RC_Multiswitch_Sound/src/RC_Common
+
+jobs:
+  rc-common:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: RC_Common unveraendert (MANIFEST.sha256)
+        run: cd "$RC_COMMON" && sha256sum -c --quiet MANIFEST.sha256
+      - name: Host-Tests (CRSF, Rollen, Lua-Menue, LED, Einstellungen)
+        run: sh "$RC_COMMON/tests/run_tests.sh"
+
+  build:
+    needs: rc-common
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: arduino/setup-arduino-cli@v2
+      - name: ESP32-Core und Bibliotheken installieren
+        run: |
+          arduino-cli config init
+          arduino-cli config add board_manager.additional_urls https://espressif.github.io/arduino-esp32/package_esp32_index.json
+          arduino-cli core update-index
+          arduino-cli core install esp32:esp32@3.0.7
+          arduino-cli lib install "Bolder Flight Systems SBUS@8.1.4"
+          arduino-cli lib install "TinyGPSPlus@1.0.3"
+      - name: Kompilieren (ESP32-S3, Minimal SPIFFS mit OTA)
+        run: |
+          arduino-cli compile --fqbn "esp32:esp32:esp32s3:CDCOnBoot=cdc,PartitionScheme=min_spiffs" \
+            --warnings default --output-dir build/S3 firmware/RC_Multiswitch_Sound
+          ls -l build/S3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RC_Multiswitch_Sound-S3
+          # *.ino.bin = OTA-Update, *.merged.bin = Komplett-Image ab 0x0 (USB)
+          path: build/S3/*.bin
