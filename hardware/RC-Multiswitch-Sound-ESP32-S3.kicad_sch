@@ -5,7 +5,7 @@
 	(uuid "e2fadea6-822e-490b-9be0-b4a472d338fa")
 	(paper "A3")
 	(title_block
-		(title "RC Multiswitch + Sound ESP32-S3 (ULN2803A, I2S, microSD)")
+		(title "RC Multiswitch + Sound ESP32-S3 (TBD62083APG, I2S, microSD)")
 		(date "2026-10-19")
 		(rev "v0.9")
 		(comment 1 "Entwurf - vor Layout/Bestellung pruefen")
@@ -16,7 +16,7 @@
 		(comment 6 "v0.6: Mono-Mix-Widerstaende R18/R19 entfernt, PCM5102A-Pad L direkt an J11 (Quelle ist mono), R-Pad unbenutzt")
 		(comment 7 "v0.7: TPA3118-Modul wird eingeloetet (J11 mit 6 Pads, Footprint Mod_TPA3118_HW327_THT), CN3 entfaellt, Lautsprecherausgang als JST PH CN4")
 		(comment 8 "v0.8: Betrieb max. 3S LiPo (9-12,6 V): TVS D1 P6KE33A -> P6KE15A, Beschriftungen angepasst")
-		(comment 9 "v0.9: Lastmasse GNDPWR (ULN2803 Pin 9) ueber NetTie NT1 an CN2, Netzklassen Power/Kanal")
+		(comment 9 "v0.9: Lastmasse GNDPWR (TBD62083APG Pin 9) ueber NetTie NT1 an CN2, Netzklassen Power/Kanal")
 	)
 	(lib_symbols
 		(symbol "Device:C"
@@ -767,7 +767,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Transistor_Array:ULN2803A"
+		(symbol "local:TBD62083APG"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -779,7 +779,7 @@
 					)
 				)
 			)
-			(property "Value" "ULN2803A"
+			(property "Value" "TBD62083APG"
 				(at 0 11.43 0)
 				(effects
 					(font
@@ -797,7 +797,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/uln2803a.pdf"
+			(property "Datasheet" "https://toshiba.semicon-storage.com/info/TBD62083APG_datasheet_en_20160803.pdf"
 				(at 2.54 -5.08 0)
 				(effects
 					(font
@@ -806,7 +806,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Darlington Transistor Arrays, SOIC18/DIP18"
+			(property "Description" "8-ch DMOS sink driver (low-side), 50V 500mA, DIP18, pin-compatible with ULN2803A"
 				(at 0 0 0)
 				(effects
 					(font
@@ -815,7 +815,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "Darlington transistor array"
+			(property "ki_keywords" "sink driver low-side DMOS array"
 				(at 0 0 0)
 				(effects
 					(font
@@ -833,7 +833,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "ULN2803A_0_1"
+			(symbol "TBD62083APG_0_1"
 				(rectangle
 					(start -7.62 -15.24)
 					(end 7.62 10.16)
@@ -973,7 +973,7 @@
 					)
 				)
 			)
-			(symbol "ULN2803A_1_1"
+			(symbol "TBD62083APG_1_1"
 				(pin input line
 					(at -10.16 5.08 0)
 					(length 2.54)
@@ -4813,7 +4813,7 @@
 		)
 		(uuid "530e41c7-c5fa-4a14-937a-5d6df854b57a")
 	)
-	(text "RC Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (ULN2803A), 3 UART, I2S (PCM5102A), TPA3118, microSD  -  Entwurf v0.8"
+	(text "RC Multiswitch + Sound, ESP32-S3-DevKitC-1: 8 Kanaele (TBD62083APG), 3 UART, I2S (PCM5102A), TPA3118, microSD  -  Entwurf v0.8"
 		(exclude_from_sim no)
 		(at 15 14 0)
 		(effects
@@ -8161,7 +8161,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_Array:ULN2803A")
+		(lib_id "local:TBD62083APG")
 		(at 165.1 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8177,7 +8177,7 @@
 				)
 			)
 		)
-		(property "Value" "ULN2803A"
+		(property "Value" "TBD62083APG"
 			(at 165.1 130.5 0)
 			(effects
 				(font
@@ -12577,7 +12577,7 @@
 		)
 		(uuid "88280a98-a1d1-4853-99fc-79e39e5712be")
 	)
-	(text "GNDPWR = Lastmasse ULN2803 (Pin 9),\neigene breite Bahn direkt zu NT1/CN2"
+	(text "GNDPWR = Lastmasse TBD62083APG (Pin 9),\neigene breite Bahn direkt zu NT1/CN2"
 		(exclude_from_sim no)
 		(at 170.18 134.62 0)
 		(effects

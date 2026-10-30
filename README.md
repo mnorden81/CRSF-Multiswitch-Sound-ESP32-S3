@@ -4,12 +4,12 @@ RC-Multiswitch mit 8 Kanaelen plus Soundmodul auf einem ESP32-S3-DevKitC-1.
 
 Frueher `CRSF-Multiswitch-Sound-ESP32-S3`, umbenannt passend zu RC-Multiswitch-ESP32-C3 und -S3.
 
-Kombiniert den RC-Multiswitch mit einem Soundmodul auf einer Platine: 8 Schaltkanaele ueber ULN2803A und Soundausgabe ueber I2S, Sounds von microSD. Ziel ist ein Modul fuer Modelle, die Licht und Sound zusammen brauchen.
+Kombiniert den RC-Multiswitch mit einem Soundmodul auf einer Platine: 8 Schaltkanaele ueber TBD62083APG (Nachfolger des ULN2803A) und Soundausgabe ueber I2S, Sounds von microSD. Ziel ist ein Modul fuer Modelle, die Licht und Sound zusammen brauchen.
 
 Ausfuehrliche Projektbeschreibung: [docs/Projektbeschreibung.docx](docs/Projektbeschreibung.docx)
 
 ## Merkmale
-- 8 Schaltkanaele ueber ULN2803A, Kontroll-LED je Kanal
+- 8 Schaltkanaele ueber TBD62083APG, Kontroll-LED je Kanal
 - UART A (Eingang), UART B und UART C als JST PH 4
 - Audio: PCM5102A-DAC mit externem TPA3118-Verstaerker (HW-327, mono, aus VLOAD; Quelle mono: Kanal L direkt an den Verstaerker, kein Mono-Mix)
 - microSD-Kartenmodul (6-polig) ueber SPI, Versorgung fest 3,3 V vom ESP32-Board (nur reine 3,3-V-Module verwenden)
@@ -18,8 +18,8 @@ Ausfuehrliche Projektbeschreibung: [docs/Projektbeschreibung.docx](docs/Projektb
 Board: ESP32-S3-DevKitC-1 N16R8 (oder Clone)
 
 - Lastspannung 3S LiPo, 9-12,6 V (VLOAD) an CN2 (JST PH 2), TVS-Diode P6KE15A als Schutz.
-- Treiber ULN2803A, 8 Kanaele, max. 500 mA je Kanal (Verlustleistung des ULN2803A bei mehreren Kanaelen beachten).
-- R9-R16 (THT 1/4 W) zwischen ULN-Ausgang und Stiftleiste J1: Es ist kein Wert vorgegeben. Der Anwender muss die Widerstaende selbst passend zu Verbraucher und Lastspannung (3S, 9-12,6 V) auslegen, Strom und Verlustleistung beachten.
+- Treiber TBD62083APG (DMOS, Nachfolger des ULN2803A, gleiche Pinbelegung; ein ULN2803A passt weiterhin in den Sockel), 8 Kanaele, max. 500 mA je Kanal, Summe aller Kanaele ca. 1,5 A. Spannungsabfall am Ausgang nur ca. 0,2-0,4 V statt ca. 1 V beim ULN2803A.
+- R9-R16 (THT 1/4 W) zwischen Treiber-Ausgang und Stiftleiste J1: Es ist kein Wert vorgegeben. Der Anwender muss die Widerstaende selbst passend zu Verbraucher und Lastspannung (3S, 9-12,6 V) auslegen, Strom und Verlustleistung beachten.
 - R1-R8 und LED1-LED8 (3 mm) als Kontroll-LED je Kanal, vom Steuersignal Sn (3,3 V) gegen GND. Auch hier legt der Anwender die Werte selbst fest. Eine Empfehlung fuer die Kontroll-LEDs steht im Schaltplan.
 - Keine Pulldowns und keine Widerstaende in den UART-Leitungen. Der ESP32 wird aus +5 V von CN1 (BEC/Empfaenger) versorgt.
 

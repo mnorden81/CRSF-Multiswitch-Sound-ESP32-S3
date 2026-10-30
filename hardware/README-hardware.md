@@ -1,8 +1,8 @@
 # RC-Multiswitch-Sound-ESP32-S3 (v0.9, Entwurf)
-RC-Multiswitch (8 Kanaele, ULN2803A) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
+RC-Multiswitch (8 Kanaele, TBD62083APG als Nachfolger des ULN2803A; ein ULN2803A passt weiterhin) plus Soundmodul auf einem ESP32-S3-DevKitC-1 (N16R8 oder Clone). Nur Schaltplan, das PCB-Layout wird selbst erstellt.
 
 ## Teile
-- Last 3S LiPo 9-12,6V (CN2, JST PH 2 horizontal), TVS P6KE15A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (THT, ohne Wert: Anwender legt sie je Verbraucher aus) zwischen ULN-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Wert vom Anwender, Empfehlung siehe Schaltplan).
+- Last 3S LiPo 9-12,6V (CN2, JST PH 2 horizontal), TVS P6KE15A (D1), 470u/35V (C1), max. 500mA je Kanal. R9-R16 (THT, ohne Wert: Anwender legt sie je Verbraucher aus) zwischen Treiber-Ausgang und J1; R1-R8 + LED1-8 als Kontroll-LEDs (Wert vom Anwender, Empfehlung siehe Schaltplan).
 - UART A (CN1, Eingang), UART B (J5), UART C (J6): JST PH 4-polig horizontal (S4B-PH-K). Keine Vorwiderstaende. ESP32 wird aus +5V von CN1 versorgt.
 - Audio:
   - PCM5102A-Modul auf J2 (VIN, GND, LCK, DIN, BCK, SCK), SCK fest auf GND. Das TPA3118-Modul (HW-327, mono, 8-24 V) wird direkt aus VLOAD gespeist (Pads PWR+/PWR- am Modul, kein Stecker CN3 mehr). Audio: Die Quelle ist mono, deshalb geht nur der Ausgang L (J2 Pin 10) per Leiterbahn direkt an J11 (IN) des Verstaerkers, die G-Pads (J2 Pin 7, 9) an GND, das R-Pad (J2 Pin 8) bleibt unbenutzt (kein Mono-Mix, keine R18/R19). Der MUTE-Header des Moduls bleibt offen. Loetbruecken H1L-H4L am PCM5102A-Modul lt. Datenblatt pruefen (ueblich: FLT=L, DEMP=L, XSMT=H, FMT=L).
@@ -29,10 +29,10 @@ Gesperrt: IO0/3/45/46 (Strapping), IO19/20 (USB), IO26-37 (Flash/PSRAM), IO43/44
 - CN4 (Lautsprecher): Standard-Footprint Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal.
 
 ## Masse und Leiterbahnbreiten (ab v0.9)
-- Lastmasse getrennt: ULN2803 Pin 9 haengt am Netz **GNDPWR**, nicht an GND. GND (ESP, PCM5102A, microSD, TPA3118) und GNDPWR sind nur ueber den NetTie **NT1** verbunden. NT1 im PCB direkt an CN2 Pin 1 legen. So fliesst der Strom der Verbraucher nicht ueber die Masse von ESP und Audio.
+- Lastmasse getrennt: U2 (TBD62083APG) Pin 9 haengt am Netz **GNDPWR**, nicht an GND. GND (ESP, PCM5102A, microSD, TPA3118) und GNDPWR sind nur ueber den NetTie **NT1** verbunden. NT1 im PCB direkt an CN2 Pin 1 legen. So fliesst der Strom der Verbraucher nicht ueber die Masse von ESP und Audio.
 - Netzklassen (Projekteinstellungen): **Power** 1,5 mm (Vias 1,0/0,5 mm) fuer GND, GNDPWR, /VLOAD und die Lautsprecherleitungen an CN4; **Kanal** 0,5 mm fuer /OUT1../OUT8 und /OUT1L../OUT8L; alles andere 0,2 mm (Default). Der Router (auch Freerouting) nimmt diese Breiten automatisch.
 - Regeldatei `RC-Multiswitch-Sound-ESP32-S3.kicad_dru`: DRC meldet Bahnen von VLOAD, GNDPWR und Lautsprecher unter 1,0 mm und Kanal-Bahnen unter 0,4 mm. GND darf duenner sein (z. B. LEDs), breite GND-Wege zu TPA3118 und CN2 von Hand pruefen.
-- Strom: ULN2803 insgesamt eher 1-1,5 A (Waerme), nicht 8 x 500 mA gleichzeitig. Belastbarkeit von R9-R16 (Watt) zum Verbraucherstrom passend waehlen.
+- Strom: U2 insgesamt max. ca. 1,5 A (mit ULN2803A wegen Waerme eher 1 A), nicht 8 x 500 mA gleichzeitig. Belastbarkeit von R9-R16 (Watt) zum Verbraucherstrom passend waehlen.
 
 ## Hinweise
 - TPA3118-Modul: Betriebsspannung 3S (9-12,6 V) liegt im Bereich des Moduls (8-24 V), Elkos 25 V unkritisch; unter 8 V schaltet es nicht zuverlaessig. Leistung bei 12 V nur einige Watt an 4-8 Ohm. Der Verstaerker kann mehrere Ampere ziehen, die Leiterbahnen (Breite!) von VLOAD zu den Modul-Pads und CN4 (JST PH, ca. 2 A je Kontakt) pruefen. Mono: ein Lautsprecher (4-8 Ohm), BTL-Ausgang, keine Masse am Lautsprecher.

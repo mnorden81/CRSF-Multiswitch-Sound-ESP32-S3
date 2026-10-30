@@ -3989,7 +3989,7 @@
 				)
 			)
 		)
-		(property "Value" "ULN2803A"
+		(property "Value" "TBD62083APG"
 			(at 3.4 26.07 90)
 			(layer "F.Fab")
 			(uuid "cb4ed7a8-dd9d-466c-a771-edbd114b7f95")
@@ -36969,7 +36969,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "ULN2803A"
+	(gr_text "TBD62083APG"
 		(at 238.65 122.21 0)
 		(layer "F.SilkS")
 		(uuid "3aea9cd7-8176-4806-96d0-28455b017d18")
