@@ -21,6 +21,12 @@ DECKEL_SCHR_D = 2.2  # Kernloch Deckelschrauben (M2,5 x 8 selbstschneidend)
 DECKEL_SCHR_K = 2.8  # Durchgangsloch im Deckel
 LIPPE     = 3.0      # Hoehe der Zentrierlippe am Deckel
 TOL       = 0.25     # Spiel Lippe <-> Innenwand
+J1_GEWINKELT = "--gewinkelt" in sys.argv   # True = gewinkelte Stiftleiste 2x8, Stecker durch die vordere Wand
+J1_SCHLITZ_H = 6.0   # Hoehe Wandschlitz fuer die Stecker ueber Platinen-Oberkante (Leiste 5,1 mm)
+# J1 Pad 1 bei KiCad (251.42, 141.75), Pins nach links bis x - 17,78, 2. Reihe bei y + 2,54.
+# Gewinkelte Leiste (KiCad PinHeader_2x08_P2.54mm_Horizontal): Kunststoff 4,04-6,58 mm ab Pad-1-Reihe,
+# Pins enden 12,58 mm ab Pad-1-Reihe, Koerper 0-5,08 mm ueber der Platine.
+J1_PIN = (251.42, 141.75)
 
 Z_PCB = BODEN + UNTEN            # Unterkante Platine
 Z_TOP = Z_PCB + PCB_T            # Oberkante Platine
@@ -66,6 +72,9 @@ OEFFNUNGEN = [
     ("CN4 Lautsprecher", "U", kx(175.35 - 0.8), kx(181.25 + 0.8), -0.2, 6.8),
     ("J1 Kabel",         "U", kx(231.4), kx(253.6), 10.0, INNEN_H + 1),   # Kabel der Ausgaenge nach unten raus
 ]
+if J1_GEWINKELT:   # statt Kabelschlitz: Schlitz fuer 8 Stecker 2-polig (je 2,54 mm), 0,6 mm Luft je Seite
+    OEFFNUNGEN[-1] = ("J1 Ausgaenge", "U", kx(J1_PIN[0] - 17.78 - 1.27 - 0.6), kx(J1_PIN[0] + 1.27 + 0.6),
+                      -0.2, J1_SCHLITZ_H)
 
 def wand_schnitt(w, a, b, z0, z1):
     za, zb = Z_TOP + z0, Z_TOP + z1
@@ -133,8 +142,9 @@ def deckel():
         d = d.cut(cyl(kx(x + LED_OFF), ky(y), -1, DECKEL + 1, 1.7))
     # Fenster ueber dem USB-Ende des ESP: BOOT/RESET mit Stift druecken, RGB-LED sichtbar
     d = d.cut(rbox(kx(152.6), ky(94.8 + 12.5), -LIPPE - 1, kx(161.0), ky(94.8 - 12.5), DECKEL + 1, 1.5))
-    # Ausschnitt ueber J1 (Ausgaenge, Stiftleiste 2x8)
-    d = d.cut(rbox(kx(231.4), ky(146.6), -LIPPE - 1, kx(253.6), ky(139.4), DECKEL + 1, 1.0))
+    # Ausschnitt ueber J1 (Ausgaenge, Stiftleiste 2x8); gewinkelt: Deckel bleibt zu
+    if not J1_GEWINKELT:
+        d = d.cut(rbox(kx(231.4), ky(146.6), -LIPPE - 1, kx(253.6), ky(139.4), DECKEL + 1, 1.0))
     # Lueftungsschlitze ueber dem TPA3118
     for i in range(9):
         x = kx(190.0) + i * 4.0
@@ -170,7 +180,9 @@ def platine_dummy():
         "TPA3118": fab(183.23, 110.51, 228.57, 145.48, 3.0, 4.6),
         "C1": cyl(kx(170.48), ky(127.85), T, T + 20, 5.0),
         "U2": fab(231.28, 117.13, 254.26, 127.29, 0, 8.0),
-        "J1": fab(232.37, 140.48, 252.69, 145.56, 0, 8.5),
+        "J1": fab(232.37, 140.48, 252.69, 145.56, 0, 8.5) if not J1_GEWINKELT else
+              fab(J1_PIN[0] - 19.05, J1_PIN[1] + 4.04, J1_PIN[0] + 1.27, J1_PIN[1] + 6.58, 0, 5.08)
+              .union(fab(J1_PIN[0] - 18.1, J1_PIN[1] + 6.58, J1_PIN[0] + 0.32, J1_PIN[1] + 12.58, 0.95, 4.13)),
         "D1": fab(163.85, 114.9, 176.55, 118.5, 0, 3.6),
     }
     for x, y in [(217.69, 140.56), (207.84, 140.56), (218.2, 116.21), (208.36, 116.21)]:   # Elkos auf dem Modul
@@ -186,16 +198,18 @@ def platine_dummy():
     return p
 
 if __name__ == "__main__":
-    out = sys.argv[1] if len(sys.argv) > 1 else "export"
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    out = args[0] if args else "export"
     os.makedirs(out, exist_ok=True)
+    SUFFIX = "_gewinkelt" if J1_GEWINKELT else ""
     u, d = unterteil(), deckel()
     print("Aussenmasse: %.1f x %.1f x %.1f mm (mit Deckel)" % (OX1 - OX0, OY1 - OY0, H_BASE + DECKEL))
-    cq.exporters.export(u, f"{out}/Gehaeuse_Unterteil.stl", tolerance=0.05, angularTolerance=0.1)
-    cq.exporters.export(u, f"{out}/Gehaeuse_Unterteil.step")
+    cq.exporters.export(u, f"{out}/Gehaeuse_Unterteil{SUFFIX}.stl", tolerance=0.05, angularTolerance=0.1)
+    cq.exporters.export(u, f"{out}/Gehaeuse_Unterteil{SUFFIX}.step")
     # Deckel fuer den Druck umdrehen (Oberseite aufs Bett)
     d_druck = d.rotate((0, 0, 0), (1, 0, 0), 180)
-    cq.exporters.export(d_druck, f"{out}/Gehaeuse_Deckel.stl", tolerance=0.05, angularTolerance=0.1)
-    cq.exporters.export(d, f"{out}/Gehaeuse_Deckel.step")
+    cq.exporters.export(d_druck, f"{out}/Gehaeuse_Deckel{SUFFIX}.stl", tolerance=0.05, angularTolerance=0.1)
+    cq.exporters.export(d, f"{out}/Gehaeuse_Deckel{SUFFIX}.step")
     if "--vorschau" in sys.argv:
         pd = platine_dummy()
         cq.exporters.export(pd, f"{out}/vorschau_platine.stl", tolerance=0.1, angularTolerance=0.3)

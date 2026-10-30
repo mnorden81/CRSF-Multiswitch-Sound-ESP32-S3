@@ -35,6 +35,24 @@
 - Einbau ins Modell: 4 Laschen am Boden mit 3,4-mm-Loch fuer Schrauben oder Kabelbinder.
 - Die Kontroll-LEDs sitzen ca. 19 mm unter dem Deckel; wer sie direkt im Deckel haben will, loetet sie mit langen Beinen ein.
 
+## Version mit gewinkelter Stiftleiste (J1 nach vorne)
+Fuer eine gewinkelte Stiftleiste 2x8, 2,54 mm an J1 statt der stehenden. Die Stecker der 8 Ausgaenge kommen vorne durch die Wand, der Deckel ist ueber J1 geschlossen. Der hohe Kabelschlitz fuer J1 entfaellt.
+
+![Gehaeuse gewinkelt, Vorderseite](gehaeuse_gewinkelt_vorne.png)
+
+| Datei | Inhalt |
+|---|---|
+| `Gehaeuse_Unterteil_gewinkelt.stl` / `.step` | Unterteil mit Schlitz 21,5 x 6,2 mm in der vorderen Wand |
+| `Gehaeuse_Deckel_gewinkelt.stl` / `.step` | Deckel ohne J1-Ausschnitt |
+| `Gehaeuse3D_Vorschau_gewinkelt.html` | 3D-Vorschau dieser Version |
+
+- Die Leiste wird in die vorhandenen Loecher von J1 geloetet, der Kunststoffkoerper zeigt zur vorderen Platinenkante. Die Platine bleibt unveraendert.
+- Masse nach KiCad-Footprint `PinHeader_2x08_P2.54mm_Horizontal`: Koerper 5,1 mm hoch, steht ca. 0,6 mm ueber die Platinenkante, die Pins ragen ca. 3,8 mm aus der Aussenwand.
+- Oben liegen die Ausgaenge (ungerade Pins), unten VLOAD (gerade Pins).
+- Der Schlitz passt fuer 8 Dupont-Stecker 2-polig nebeneinander (je 2,54 x 5,08 mm).
+- Aussenmasse wie bei der stehenden Version.
+- Erzeugen: `python gehaeuse.py export --gewinkelt`
+
 ## Aendern
 Masse in `gehaeuse.py` anpassen und neu erzeugen (Python 3 mit `pip install cadquery`):
 ```
